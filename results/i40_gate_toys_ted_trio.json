@@ -1,0 +1,231 @@
+{
+  "experiment": "I40_tricks_gate",
+  "dataset": "toys",
+  "smoke": false,
+  "no_real_test": true,
+  "protocol": "inner-world val(-3)/pseudo-test(-2), full-corpus max-IP, protocol.evaluate",
+  "inputs": {
+    "seq": "data/amazon_toys_backbone/Toys_inner.txt",
+    "n_items": 11924,
+    "item_emb": "data/amazon_toys_backbone/Toys_openai-3-large_i22inner_embeddings.pt",
+    "input_emb": "data/amazon_toys_backbone/Toys_openai-3-large_i24inner_input.pt",
+    "ckpts": [
+      "outputs/artifacts/i40_toys_ted_s42/tower.pt",
+      "outputs/artifacts/i40_toys_ted_s43/tower.pt",
+      "outputs/artifacts/i40_toys_ted_s44/tower.pt"
+    ]
+  },
+  "per_ckpt": {
+    "i40_toys_ted_s42/tower.pt": {
+      "path": "outputs/artifacts/i40_toys_ted_s42/tower.pt",
+      "kind": "tricks",
+      "config": {
+        "d": 256,
+        "n_layers": 2,
+        "n_heads": 4,
+        "d_ff": 512,
+        "max_len": 20,
+        "dropout": 0.1,
+        "tau": 0.05,
+        "seed": 42,
+        "n_query_vectors": 4,
+        "item_dim": 3072,
+        "n_items": 11924,
+        "input_dim": 6144,
+        "longq_L": 0,
+        "freq_alpha": 0.0,
+        "freq_c": 5,
+        "input_dropout": 0.0,
+        "cumulative_ce": false,
+        "head_gate": "none",
+        "head_gate_tau": 1.0,
+        "multi_target_k": 0
+      },
+      "inner_val": {
+        "n": 19412,
+        "overall": {
+          "HR@5": 0.3375,
+          "HR@10": 0.4271,
+          "NDCG@5": 0.2483,
+          "NDCG@10": 0.2773
+        }
+      },
+      "pseudo_test": {
+        "n": 19412,
+        "overall": {
+          "HR@5": 0.0808,
+          "HR@10": 0.1148,
+          "NDCG@5": 0.0552,
+          "NDCG@10": 0.0661
+        },
+        "seen": {
+          "n": 19073,
+          "HR@5": 0.0813,
+          "HR@10": 0.1156,
+          "NDCG@5": 0.0557,
+          "NDCG@10": 0.0667
+        },
+        "cold": {
+          "n": 339,
+          "HR@5": 0.0501,
+          "HR@10": 0.0708,
+          "NDCG@5": 0.0251,
+          "NDCG@10": 0.0317
+        }
+      }
+    },
+    "i40_toys_ted_s43/tower.pt": {
+      "path": "outputs/artifacts/i40_toys_ted_s43/tower.pt",
+      "kind": "tricks",
+      "config": {
+        "d": 256,
+        "n_layers": 2,
+        "n_heads": 4,
+        "d_ff": 512,
+        "max_len": 20,
+        "dropout": 0.1,
+        "tau": 0.05,
+        "seed": 43,
+        "n_query_vectors": 4,
+        "item_dim": 3072,
+        "n_items": 11924,
+        "input_dim": 6144,
+        "longq_L": 0,
+        "freq_alpha": 0.0,
+        "freq_c": 5,
+        "input_dropout": 0.0,
+        "cumulative_ce": false,
+        "head_gate": "none",
+        "head_gate_tau": 1.0,
+        "multi_target_k": 0
+      },
+      "inner_val": {
+        "n": 19412,
+        "overall": {
+          "HR@5": 0.3321,
+          "HR@10": 0.4233,
+          "NDCG@5": 0.2448,
+          "NDCG@10": 0.2743
+        }
+      },
+      "pseudo_test": {
+        "n": 19412,
+        "overall": {
+          "HR@5": 0.0824,
+          "HR@10": 0.1168,
+          "NDCG@5": 0.0566,
+          "NDCG@10": 0.0678
+        },
+        "seen": {
+          "n": 19073,
+          "HR@5": 0.083,
+          "HR@10": 0.1175,
+          "NDCG@5": 0.0573,
+          "NDCG@10": 0.0684
+        },
+        "cold": {
+          "n": 339,
+          "HR@5": 0.0442,
+          "HR@10": 0.0767,
+          "NDCG@5": 0.0198,
+          "NDCG@10": 0.0303
+        }
+      }
+    },
+    "i40_toys_ted_s44/tower.pt": {
+      "path": "outputs/artifacts/i40_toys_ted_s44/tower.pt",
+      "kind": "tricks",
+      "config": {
+        "d": 256,
+        "n_layers": 2,
+        "n_heads": 4,
+        "d_ff": 512,
+        "max_len": 20,
+        "dropout": 0.1,
+        "tau": 0.05,
+        "seed": 44,
+        "n_query_vectors": 4,
+        "item_dim": 3072,
+        "n_items": 11924,
+        "input_dim": 6144,
+        "longq_L": 0,
+        "freq_alpha": 0.0,
+        "freq_c": 5,
+        "input_dropout": 0.0,
+        "cumulative_ce": false,
+        "head_gate": "none",
+        "head_gate_tau": 1.0,
+        "multi_target_k": 0
+      },
+      "inner_val": {
+        "n": 19412,
+        "overall": {
+          "HR@5": 0.3416,
+          "HR@10": 0.434,
+          "NDCG@5": 0.2533,
+          "NDCG@10": 0.2832
+        }
+      },
+      "pseudo_test": {
+        "n": 19412,
+        "overall": {
+          "HR@5": 0.081,
+          "HR@10": 0.1181,
+          "NDCG@5": 0.0557,
+          "NDCG@10": 0.0677
+        },
+        "seen": {
+          "n": 19073,
+          "HR@5": 0.0817,
+          "HR@10": 0.1191,
+          "NDCG@5": 0.0564,
+          "NDCG@10": 0.0685
+        },
+        "cold": {
+          "n": 339,
+          "HR@5": 0.0383,
+          "HR@10": 0.0649,
+          "NDCG@5": 0.0161,
+          "NDCG@10": 0.0245
+        }
+      }
+    }
+  },
+  "ensemble": {
+    "n_ckpts": 3,
+    "method": "mean_per_query_zscore",
+    "inner_val": {
+      "n": 19412,
+      "overall": {
+        "HR@5": 0.3762,
+        "HR@10": 0.4746,
+        "NDCG@5": 0.279,
+        "NDCG@10": 0.3109
+      }
+    },
+    "pseudo_test": {
+      "n": 19412,
+      "overall": {
+        "HR@5": 0.0864,
+        "HR@10": 0.1235,
+        "NDCG@5": 0.0588,
+        "NDCG@10": 0.0708
+      },
+      "seen": {
+        "n": 19073,
+        "HR@5": 0.0872,
+        "HR@10": 0.1242,
+        "NDCG@5": 0.0595,
+        "NDCG@10": 0.0715
+      },
+      "cold": {
+        "n": 339,
+        "HR@5": 0.0442,
+        "HR@10": 0.0855,
+        "NDCG@5": 0.02,
+        "NDCG@10": 0.0336
+      }
+    }
+  },
+  "runtime_sec": 88.6
+}

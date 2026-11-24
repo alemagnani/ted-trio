@@ -1,0 +1,52 @@
+{
+  "experiment": "CLOSE2_sasrec",
+  "dataset": "yelp",
+  "seed": 43,
+  "config": {
+    "dataset": "yelp",
+    "seed": 43,
+    "device": "cuda:0",
+    "d": 50,
+    "blocks": 2,
+    "heads": 1,
+    "dropout": 0.5,
+    "maxlen": 20,
+    "lr": 0.001,
+    "l2_emb": 0.0,
+    "batch": 128,
+    "epochs": 200,
+    "eval_every": 10,
+    "patience": 40,
+    "loss": "bce"
+  },
+  "selection": {
+    "criterion": "protocol val HR@10",
+    "best_val_hr10": 0.0406,
+    "best_epoch": 60
+  },
+  "test": {
+    "n": 30431,
+    "overall": {
+      "HR@5": 0.027,
+      "HR@10": 0.0395,
+      "NDCG@5": 0.0198,
+      "NDCG@10": 0.0238
+    },
+    "seen": {
+      "n": 30313,
+      "HR@5": 0.0272,
+      "HR@10": 0.0396,
+      "NDCG@5": 0.0199,
+      "NDCG@10": 0.0239
+    },
+    "cold": {
+      "n": 118,
+      "HR@5": 0.0,
+      "HR@10": 0.0,
+      "NDCG@5": 0.0,
+      "NDCG@10": 0.0
+    }
+  },
+  "checkpoint": "outputs/artifacts/close2_sasrec_yelp_s43/sasrec_best.pt",
+  "runtime_sec": 2848.3
+}

@@ -1,0 +1,26 @@
+{
+  "selector": "translift3",
+  "per_seed_HR5": {
+    "42": 0.0612,
+    "43": 0.0622,
+    "44": 0.0615
+  },
+  "trio": {
+    "unmasked": {
+      "HR@5": 0.0638,
+      "HR@10": 0.097,
+      "NDCG@5": 0.0406,
+      "NDCG@10": 0.0513
+    },
+    "masked": {
+      "HR@5": 0.0741,
+      "HR@10": 0.1065,
+      "NDCG@5": 0.0514,
+      "NDCG@10": 0.0617
+    }
+  },
+  "trio_HR5_unmasked": 0.0638,
+  "bar_pred3": 0.0802,
+  "pass": false,
+  "seconds": 284.1
+}

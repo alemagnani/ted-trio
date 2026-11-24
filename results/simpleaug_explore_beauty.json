@@ -1,0 +1,39 @@
+{
+  "experiment": "simpleaug_explore",
+  "world": "inner pseudo-test (Beauty_inner.txt), training-free content-cosine PROXY",
+  "note": "relative selector ordering only; zero real-test looks",
+  "selectors": {
+    "none": {
+      "unmasked": {
+        "HR@5": 0.0284,
+        "HR@10": 0.0556,
+        "NDCG@5": 0.0133,
+        "NDCG@10": 0.0221,
+        "n": 22363
+      },
+      "masked": {
+        "HR@5": 0.0463,
+        "HR@10": 0.0675,
+        "NDCG@5": 0.0304,
+        "NDCG@10": 0.0372,
+        "n": 22363
+      }
+    },
+    "pred3": {
+      "unmasked": {
+        "HR@5": 0.028,
+        "HR@10": 0.0575,
+        "NDCG@5": 0.0131,
+        "NDCG@10": 0.0226,
+        "n": 22363
+      },
+      "masked": {
+        "HR@5": 0.0472,
+        "HR@10": 0.0717,
+        "NDCG@5": 0.0315,
+        "NDCG@10": 0.0394,
+        "n": 22363
+      }
+    }
+  }
+}

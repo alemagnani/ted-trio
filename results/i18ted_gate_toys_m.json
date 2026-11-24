@@ -1,0 +1,78 @@
+{
+  "experiment": "I40_tricks_gate",
+  "dataset": "toys",
+  "smoke": false,
+  "no_real_test": true,
+  "protocol": "inner-world val(-3)/pseudo-test(-2), full-corpus max-IP, protocol.evaluate",
+  "inputs": {
+    "seq": "data/amazon_toys_backbone/Toys_inner.txt",
+    "n_items": 11924,
+    "item_emb": "data/amazon_toys_backbone/Toys_openai-3-large_i22inner_embeddings.pt",
+    "input_emb": "data/amazon_toys_backbone/Toys_openai-3-large_i24inner_input.pt",
+    "ckpts": [
+      "outputs/artifacts/i18ted_toys_m_s42_iv/tower.pt"
+    ]
+  },
+  "per_ckpt": {
+    "i18ted_toys_m_s42_iv/tower.pt": {
+      "path": "outputs/artifacts/i18ted_toys_m_s42_iv/tower.pt",
+      "kind": "tricks",
+      "config": {
+        "d": 512,
+        "n_layers": 4,
+        "n_heads": 8,
+        "d_ff": 1024,
+        "max_len": 20,
+        "dropout": 0.1,
+        "tau": 0.05,
+        "seed": 42,
+        "n_query_vectors": 4,
+        "item_dim": 3072,
+        "n_items": 11924,
+        "input_dim": 6144,
+        "longq_L": 0,
+        "freq_alpha": 0.0,
+        "freq_c": 5,
+        "input_dropout": 0.0,
+        "cumulative_ce": false,
+        "head_gate": "none",
+        "head_gate_tau": 1.0,
+        "multi_target_k": 0
+      },
+      "inner_val": {
+        "n": 19412,
+        "overall": {
+          "HR@5": 0.1345,
+          "HR@10": 0.1869,
+          "NDCG@5": 0.0935,
+          "NDCG@10": 0.1104
+        }
+      },
+      "pseudo_test": {
+        "n": 19412,
+        "overall": {
+          "HR@5": 0.0724,
+          "HR@10": 0.1099,
+          "NDCG@5": 0.0487,
+          "NDCG@10": 0.0608
+        },
+        "seen": {
+          "n": 19073,
+          "HR@5": 0.0732,
+          "HR@10": 0.1107,
+          "NDCG@5": 0.0494,
+          "NDCG@10": 0.0614
+        },
+        "cold": {
+          "n": 339,
+          "HR@5": 0.0265,
+          "HR@10": 0.0649,
+          "NDCG@5": 0.0109,
+          "NDCG@10": 0.0232
+        }
+      }
+    }
+  },
+  "ensemble": null,
+  "runtime_sec": 17.3
+}

@@ -1,0 +1,30 @@
+{
+  "experiment": "CLOSE2_tiger_score",
+  "dataset": "yelp",
+  "seed": 42,
+  "beams": "outputs/artifacts/j1_dump_expand/yelp_tiger_beams_test.jsonl",
+  "n": 30431,
+  "n_beam_records": 608620,
+  "invalid_beam_frac": 0.0002,
+  "overall": {
+    "n": 30431,
+    "HR@5": 0.0198,
+    "HR@10": 0.0331,
+    "NDCG@5": 0.0129,
+    "NDCG@10": 0.0171
+  },
+  "seen": {
+    "n": 30313,
+    "HR@5": 0.0199,
+    "HR@10": 0.0332,
+    "NDCG@5": 0.0129,
+    "NDCG@10": 0.0172
+  },
+  "cold": {
+    "n": 118,
+    "HR@5": 0.0,
+    "HR@10": 0.0,
+    "NDCG@5": 0.0,
+    "NDCG@10": 0.0
+  }
+}

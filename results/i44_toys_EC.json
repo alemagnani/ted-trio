@@ -1,0 +1,59 @@
+{
+  "experiment": "I44_2x2_cell",
+  "cell": "toys_EC",
+  "ckpts": [
+    "outputs/artifacts/i30_toys_real_openai_k4_s42_iv/j5.pt",
+    "outputs/artifacts/i30_toys_real_openai_k4_s43_iv/j5.pt",
+    "outputs/artifacts/i30_toys_real_openai_k4_s44_iv/j5.pt"
+  ],
+  "item_emb": "data/amazon_toys_backbone/Toys_openai-3-large_i22real_embeddings.pt",
+  "input_emb": "data/amazon_toys_backbone/Toys_openai-3-large_i24real_input.pt",
+  "pool": 200,
+  "unmasked": {
+    "n": 19412,
+    "overall": {
+      "HR@5": 0.0804,
+      "HR@10": 0.121,
+      "NDCG@5": 0.051,
+      "NDCG@10": 0.0641
+    },
+    "seen": {
+      "n": 19116,
+      "HR@5": 0.0813,
+      "HR@10": 0.1216,
+      "NDCG@5": 0.0516,
+      "NDCG@10": 0.0646
+    },
+    "cold": {
+      "n": 296,
+      "HR@5": 0.0236,
+      "HR@10": 0.0777,
+      "NDCG@5": 0.0134,
+      "NDCG@10": 0.0313
+    }
+  },
+  "masked": {
+    "n": 19412,
+    "overall": {
+      "HR@5": 0.0969,
+      "HR@10": 0.1332,
+      "NDCG@5": 0.0677,
+      "NDCG@10": 0.0793
+    },
+    "seen": {
+      "n": 19116,
+      "HR@5": 0.0974,
+      "HR@10": 0.1338,
+      "NDCG@5": 0.0681,
+      "NDCG@10": 0.0798
+    },
+    "cold": {
+      "n": 296,
+      "HR@5": 0.0642,
+      "HR@10": 0.0912,
+      "NDCG@5": 0.0416,
+      "NDCG@10": 0.0502
+    }
+  },
+  "runtime_sec": 420.0
+}

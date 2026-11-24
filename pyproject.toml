@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ted-trio"
+version = "1.0.0"
+description = "TED-Trio: directed transition signal injected into frozen text-embedding retrievers for sequential recommendation (WSDM 2027) - reproduction code"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [
+    { name = "Alessandro Magnani" },
+    { name = "Min Xie" },
+    { name = "Ming-Hen Tsai" },
+    { name = "Jyun-Yu Jiang" },
+]
+requires-python = ">=3.10"
+# Versions used for the paper: training/scoring boxes ran torch 2.5.1+cu124 with
+# transformers 4.39.3; the CPU serving benchmarks ran Python 3.12.4, torch 2.12.0,
+# faiss 1.13.2 (recorded inside each benchmark JSON). See README "Environment".
+dependencies = [
+    "numpy",
+    "scipy",
+    "scikit-learn",
+    "pandas",
+    "faiss-cpu",
+    "torch",
+    "transformers",
+    "sentence-transformers",
+    "requests",
+    "tqdm",
+]
+
+[project.optional-dependencies]
+# gdown: Google-Drive download of the LC-Rec Instruments release;
+# wget: imported (but only used for Steam) by LIGER's preprocessing module.
+data = ["gdown", "wget"]
+dev = ["pytest"]
+
+[project.urls]
+Paper = "https://github.com/alemagnani/ted-trio"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

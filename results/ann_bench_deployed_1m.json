@@ -1,0 +1,155 @@
+{
+  "config": "deployed i24 trio (3 seeds x K=4 = 12 probes), union rescore (per-tower max-over-K -> per-tower z over union -> mean -> top-10)",
+  "truth": "full-corpus exact with per-tower z over FULL corpus (offline eval semantics); recall thus includes the union-z approximation error",
+  "n_corpus": 1000000,
+  "n_real_items": 12101,
+  "d": 3072,
+  "n_queries": 2000,
+  "cand_per_probe": 500,
+  "distractor_calibration": {
+    "real_pair_cos_mean": 0.4462,
+    "sigma_rel": 0.6,
+    "distractor_random_real_cos_mean": 0.4472,
+    "corpus_distractor_random_real_cos_mean": 0.4474
+  },
+  "exact_singlethread_batch1": {
+    "n_timed": 20,
+    "ms_mean": 1303.1,
+    "ms_p50": 1291.7
+  },
+  "exact_multithread_ms_per_query_per_pass": 630.6,
+  "exact_flat_mem_MB": 12288.0,
+  "threads_note": "ANN + single-thread exact use 1 thread; multithread exact uses 16",
+  "rows": [
+    {
+      "index": "IVF4096,Flat",
+      "nprobe": 8,
+      "recall@10_vs_exact": 0.9245,
+      "ms_mean": 135.19,
+      "ms_p50": 146.52,
+      "ms_p95": 203.48,
+      "union_size_mean": 2613
+    },
+    {
+      "index": "IVF4096,Flat",
+      "nprobe": 16,
+      "recall@10_vs_exact": 0.952,
+      "ms_mean": 149.4,
+      "ms_p50": 161.53,
+      "ms_p95": 216.13,
+      "union_size_mean": 2562
+    },
+    {
+      "index": "IVF4096,Flat",
+      "nprobe": 32,
+      "recall@10_vs_exact": 0.9627,
+      "ms_mean": 181.29,
+      "ms_p50": 186.68,
+      "ms_p95": 234.95,
+      "union_size_mean": 2522
+    },
+    {
+      "index": "IVF4096,Flat",
+      "nprobe": 64,
+      "recall@10_vs_exact": 0.9683,
+      "ms_mean": 205.21,
+      "ms_p50": 200.86,
+      "ms_p95": 240.03,
+      "union_size_mean": 2500
+    },
+    {
+      "index": "IVF4096,Flat",
+      "nprobe": 128,
+      "recall@10_vs_exact": 0.9708,
+      "ms_mean": 301.46,
+      "ms_p50": 297.62,
+      "ms_p95": 343.28,
+      "union_size_mean": 2496
+    },
+    {
+      "index": "IVF4096,PQ64",
+      "nprobe": 8,
+      "recall@10_vs_exact": 0.9222,
+      "ms_mean": 126.71,
+      "ms_p50": 133.78,
+      "ms_p95": 191.18,
+      "union_size_mean": 2545
+    },
+    {
+      "index": "IVF4096,PQ64",
+      "nprobe": 16,
+      "recall@10_vs_exact": 0.9487,
+      "ms_mean": 129.81,
+      "ms_p50": 142.7,
+      "ms_p95": 189.79,
+      "union_size_mean": 2524
+    },
+    {
+      "index": "IVF4096,PQ64",
+      "nprobe": 32,
+      "recall@10_vs_exact": 0.9565,
+      "ms_mean": 129.54,
+      "ms_p50": 144.49,
+      "ms_p95": 192.5,
+      "union_size_mean": 2513
+    },
+    {
+      "index": "IVF4096,PQ64",
+      "nprobe": 64,
+      "recall@10_vs_exact": 0.9585,
+      "ms_mean": 123.59,
+      "ms_p50": 145.03,
+      "ms_p95": 190.98,
+      "union_size_mean": 2509
+    },
+    {
+      "index": "IVF4096,PQ64",
+      "nprobe": 128,
+      "recall@10_vs_exact": 0.9585,
+      "ms_mean": 117.5,
+      "ms_p50": 143.86,
+      "ms_p95": 190.1,
+      "union_size_mean": 2508
+    },
+    {
+      "index": "HNSW32,Flat",
+      "efSearch": 16,
+      "recall@10_vs_exact": 0.8796,
+      "ms_mean": 85.84,
+      "ms_p50": 94.27,
+      "ms_p95": 110.22,
+      "union_size_mean": 2791
+    },
+    {
+      "index": "HNSW32,Flat",
+      "efSearch": 32,
+      "recall@10_vs_exact": 0.9182,
+      "ms_mean": 103.76,
+      "ms_p50": 102.77,
+      "ms_p95": 169.74,
+      "union_size_mean": 2798
+    },
+    {
+      "index": "HNSW32,Flat",
+      "efSearch": 64,
+      "recall@10_vs_exact": 0.9421,
+      "ms_mean": 124.7,
+      "ms_p50": 115.99,
+      "ms_p95": 183.06,
+      "union_size_mean": 2670
+    },
+    {
+      "index": "HNSW32,Flat",
+      "efSearch": 128,
+      "recall@10_vs_exact": 0.9547,
+      "ms_mean": 127.91,
+      "ms_p50": 132.73,
+      "ms_p95": 192.51,
+      "union_size_mean": 2557
+    }
+  ],
+  "ivf_flat_mem_MB": 12346.4,
+  "ivf_pq_mem_MB": 125.5,
+  "hnsw_mem_MB": 12560.1,
+  "runtime_sec": 13367.9
+}

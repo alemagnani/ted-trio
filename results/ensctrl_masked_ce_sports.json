@@ -1,0 +1,95 @@
+{
+  "experiment": "E-ENSCTRL_masked_descriptive_rescore",
+  "prereg": "PREREG-E-ENSCTRL (unmasked primary + masked descriptive)",
+  "dataset": "sports",
+  "loss": "ce",
+  "no_selection": true,
+  "configs_scored": 1,
+  "booked_source": "research/results/ensctrl_sasrec_ce_sports.json",
+  "frozen_w": [
+    0.5,
+    0.1,
+    0.3999999999999999
+  ],
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "masking": "i41/i43 convention: protocol.evaluate exclude_history=True (train+val items within the max_len=20 evaluator window)",
+  "unmasked_reproduction_guard": {
+    "pass": true,
+    "checks": {
+      "HR@5": {
+        "recomputed": 0.0316,
+        "booked": 0.0316
+      },
+      "NDCG@5": {
+        "recomputed": 0.0187,
+        "booked": 0.0187
+      },
+      "HR@10": {
+        "recomputed": 0.0509,
+        "booked": 0.0509
+      },
+      "NDCG@10": {
+        "recomputed": 0.0249,
+        "booked": 0.0249
+      }
+    }
+  },
+  "repeat_target_share": 0.0,
+  "unmasked": {
+    "n": 35598,
+    "overall": {
+      "HR@5": 0.0316,
+      "HR@10": 0.0509,
+      "NDCG@5": 0.0187,
+      "NDCG@10": 0.0249
+    },
+    "seen": {
+      "n": 35256,
+      "HR@5": 0.0319,
+      "HR@10": 0.0514,
+      "NDCG@5": 0.0189,
+      "NDCG@10": 0.0252
+    },
+    "cold": {
+      "n": 342,
+      "HR@5": 0.0,
+      "HR@10": 0.0,
+      "NDCG@5": 0.0,
+      "NDCG@10": 0.0
+    }
+  },
+  "masked": {
+    "n": 35598,
+    "overall": {
+      "HR@5": 0.0379,
+      "HR@10": 0.0562,
+      "NDCG@5": 0.0261,
+      "NDCG@10": 0.032
+    },
+    "seen": {
+      "n": 35256,
+      "HR@5": 0.0383,
+      "HR@10": 0.0568,
+      "NDCG@5": 0.0264,
+      "NDCG@10": 0.0323
+    },
+    "cold": {
+      "n": 342,
+      "HR@5": 0.0,
+      "HR@10": 0.0,
+      "NDCG@5": 0.0,
+      "NDCG@10": 0.0
+    }
+  },
+  "delta_masked_minus_unmasked": {
+    "HR@5": 0.0063,
+    "HR@10": 0.0053,
+    "NDCG@5": 0.0074,
+    "NDCG@10": 0.0071
+  },
+  "runtime_sec": 2.6
+}

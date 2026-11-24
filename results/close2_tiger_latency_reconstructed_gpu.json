@@ -1,0 +1,163 @@
+{
+  "experiment": "close2_tiger_latency",
+  "reconstructed": true,
+  "reconstruction_note": "script rebuilt 2026-08 from close2_tiger_latency.json's decode_config (original ad-hoc on-box bench never kept); decode path identical to scripts/j1/j1_dump.py dump_tiger; NOT yet validated against the booked 739 ms GPU / 1.7 s CPU on the original RTX-4090 box (torch 2.5.1+cu124, transformers 4.39.3, co-tenant load)",
+  "date_utc": "2026-08-13T09:42:07Z",
+  "dataset": "Amazon Beauty (LIGER preprocessing, sentence-t5-xl SIDs, seed 42)",
+  "checkpoint": {
+    "path": "outputs/artifacts/j1/tiger_ckpt_best.pt",
+    "n_params": 6823552
+  },
+  "decode_config": {
+    "num_beams": 20,
+    "num_return_sequences": 20,
+    "max_new_tokens_sid_len": 4,
+    "n_positions": 102,
+    "max_items_per_seq": 20,
+    "batch_size": 1,
+    "constrained": "unconstrained beam-20 with post-hoc SID->item validity mapping, identical to the reported eval (j1_dump.py)",
+    "gpu_precision": "fp16 autocast (same as eval)",
+    "cpu_precision": "fp32, torch threads=1",
+    "timed_section": "model_forward input prep + generate + SID->item mapping, per batch-1 request",
+    "lean_mem_staging": true
+  },
+  "environment": {
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "torch": "2.5.1+cu124",
+    "transformers": "4.39.3",
+    "python": "3.11.10",
+    "cpu_count": 128,
+    "hardware": "Linux-5.15.0-181-generic-x86_64-with-glibc2.35",
+    "loadavg_at_start": [
+      6.55419921875,
+      6.26708984375,
+      4.9404296875
+    ]
+  },
+  "gpu_batch1": {
+    "n_queries": 200,
+    "warmup_queries": 10,
+    "mean_ms": 48.861449010146316,
+    "median_ms": 48.6911894986406,
+    "p90_ms": 49.1531161009334,
+    "p99_ms": 51.28615148831158,
+    "min_ms": 48.46455401275307,
+    "max_ms": 53.00750699825585,
+    "HR@5_timed_subset": 0.02,
+    "HR@10_timed_subset": 0.035,
+    "gpu_util_samples_during": [
+      {
+        "util_pct": 0,
+        "mem_used_mib": 578
+      },
+      {
+        "util_pct": 12,
+        "mem_used_mib": 578
+      },
+      {
+        "util_pct": 12,
+        "mem_used_mib": 578
+      },
+      {
+        "util_pct": 12,
+        "mem_used_mib": 578
+      },
+      {
+        "util_pct": 12,
+        "mem_used_mib": 578
+      }
+    ]
+  },
+  "sanity_decodes": [
+    {
+      "query_idx": 0,
+      "target_item": 5,
+      "top5_items": [
+        1896,
+        301,
+        2485,
+        862,
+        444
+      ],
+      "top5_valid": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "query_idx": 1,
+      "target_item": 11,
+      "top5_items": [
+        790,
+        103,
+        534,
+        4313,
+        2844
+      ],
+      "top5_valid": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "query_idx": 2,
+      "target_item": 19,
+      "top5_items": [
+        24,
+        39,
+        44,
+        1872,
+        5687
+      ],
+      "top5_valid": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "query_idx": 3,
+      "target_item": 24,
+      "top5_items": [
+        24,
+        39,
+        13,
+        103,
+        1766
+      ],
+      "top5_valid": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "query_idx": 4,
+      "target_item": 32,
+      "top5_items": [
+        13,
+        24,
+        477,
+        39,
+        30
+      ],
+      "top5_valid": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "experiment": "I44_2x2_cell",
+  "cell": "yelp_pC",
+  "ckpts": [
+    "../../outputs/artifacts/i44_yelp_pc_s42_iv/j5.pt",
+    "../../outputs/artifacts/i44_yelp_pc_s43_iv/j5.pt",
+    "../../outputs/artifacts/i44_yelp_pc_s44_iv/j5.pt"
+  ],
+  "item_emb": "../../data/yelp_backbone/Yelp_openai-3-large_embeddings.pt",
+  "input_emb": "../../data/yelp_backbone/Yelp_openai-3-large_i44plain_input.pt",
+  "pool": 200,
+  "unmasked": {
+    "n": 30431,
+    "overall": {
+      "HR@5": 0.02,
+      "HR@10": 0.0314,
+      "NDCG@5": 0.0133,
+      "NDCG@10": 0.017
+    },
+    "seen": {
+      "n": 30313,
+      "HR@5": 0.0201,
+      "HR@10": 0.0314,
+      "NDCG@5": 0.0134,
+      "NDCG@10": 0.017
+    },
+    "cold": {
+      "n": 118,
+      "HR@5": 0.0085,
+      "HR@10": 0.0169,
+      "NDCG@5": 0.0033,
+      "NDCG@10": 0.0063
+    }
+  },
+  "masked": {
+    "n": 30431,
+    "overall": {
+      "HR@5": 0.0169,
+      "HR@10": 0.0262,
+      "NDCG@5": 0.011,
+      "NDCG@10": 0.014
+    },
+    "seen": {
+      "n": 30313,
+      "HR@5": 0.0169,
+      "HR@10": 0.0263,
+      "NDCG@5": 0.011,
+      "NDCG@10": 0.014
+    },
+    "cold": {
+      "n": 118,
+      "HR@5": 0.0085,
+      "HR@10": 0.0169,
+      "NDCG@5": 0.0036,
+      "NDCG@10": 0.0067
+    }
+  },
+  "runtime_sec": 976.3
+}

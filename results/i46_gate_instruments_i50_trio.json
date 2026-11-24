@@ -1,0 +1,207 @@
+{
+  "experiment": "I40_tricks_gate",
+  "dataset": "beauty",
+  "smoke": false,
+  "no_real_test": true,
+  "protocol": "inner-world val(-3)/pseudo-test(-2), full-corpus max-IP, protocol.evaluate",
+  "inputs": {
+    "seq": "data/amazon_instruments_backbone/Instruments_inner.txt",
+    "n_items": 9922,
+    "item_emb": "data/amazon_instruments_backbone/Instruments_openai-3-large_i22inner_embeddings.pt",
+    "input_emb": "data/amazon_instruments_backbone/Instruments_openai-3-large_i24inner_input.pt",
+    "ckpts": [
+      "outputs/artifacts/i50_instruments_inner_openai_k4_s42_iv/j5.pt",
+      "outputs/artifacts/i50_instruments_inner_openai_k4_s43_iv/j5.pt",
+      "outputs/artifacts/i50_instruments_inner_openai_k4_s44_iv/j5.pt"
+    ]
+  },
+  "per_ckpt": {
+    "i50_instruments_inner_openai_k4_s42_iv/j5.pt": {
+      "path": "outputs/artifacts/i50_instruments_inner_openai_k4_s42_iv/j5.pt",
+      "kind": "frozen",
+      "config": {
+        "d": 256,
+        "n_layers": 2,
+        "n_heads": 4,
+        "d_ff": 512,
+        "max_len": 20,
+        "dropout": 0.1,
+        "tau": 0.05,
+        "seed": 42,
+        "n_query_vectors": 4,
+        "item_dim": 3072,
+        "n_items": 9922,
+        "input_dim": 6144
+      },
+      "inner_val": {
+        "n": 24772,
+        "overall": {
+          "HR@5": 0.1727,
+          "HR@10": 0.2216,
+          "NDCG@5": 0.1322,
+          "NDCG@10": 0.1479
+        }
+      },
+      "pseudo_test": {
+        "n": 24772,
+        "overall": {
+          "HR@5": 0.108,
+          "HR@10": 0.1323,
+          "NDCG@5": 0.0852,
+          "NDCG@10": 0.093
+        },
+        "seen": {
+          "n": 24699,
+          "HR@5": 0.1083,
+          "HR@10": 0.1327,
+          "NDCG@5": 0.0854,
+          "NDCG@10": 0.0933
+        },
+        "cold": {
+          "n": 73,
+          "HR@5": 0.0,
+          "HR@10": 0.0,
+          "NDCG@5": 0.0,
+          "NDCG@10": 0.0
+        }
+      }
+    },
+    "i50_instruments_inner_openai_k4_s43_iv/j5.pt": {
+      "path": "outputs/artifacts/i50_instruments_inner_openai_k4_s43_iv/j5.pt",
+      "kind": "frozen",
+      "config": {
+        "d": 256,
+        "n_layers": 2,
+        "n_heads": 4,
+        "d_ff": 512,
+        "max_len": 20,
+        "dropout": 0.1,
+        "tau": 0.05,
+        "seed": 43,
+        "n_query_vectors": 4,
+        "item_dim": 3072,
+        "n_items": 9922,
+        "input_dim": 6144
+      },
+      "inner_val": {
+        "n": 24772,
+        "overall": {
+          "HR@5": 0.1783,
+          "HR@10": 0.2251,
+          "NDCG@5": 0.1372,
+          "NDCG@10": 0.1523
+        }
+      },
+      "pseudo_test": {
+        "n": 24772,
+        "overall": {
+          "HR@5": 0.1067,
+          "HR@10": 0.1333,
+          "NDCG@5": 0.0858,
+          "NDCG@10": 0.0943
+        },
+        "seen": {
+          "n": 24699,
+          "HR@5": 0.107,
+          "HR@10": 0.1337,
+          "NDCG@5": 0.0861,
+          "NDCG@10": 0.0946
+        },
+        "cold": {
+          "n": 73,
+          "HR@5": 0.0,
+          "HR@10": 0.0137,
+          "NDCG@5": 0.0,
+          "NDCG@10": 0.0046
+        }
+      }
+    },
+    "i50_instruments_inner_openai_k4_s44_iv/j5.pt": {
+      "path": "outputs/artifacts/i50_instruments_inner_openai_k4_s44_iv/j5.pt",
+      "kind": "frozen",
+      "config": {
+        "d": 256,
+        "n_layers": 2,
+        "n_heads": 4,
+        "d_ff": 512,
+        "max_len": 20,
+        "dropout": 0.1,
+        "tau": 0.05,
+        "seed": 44,
+        "n_query_vectors": 4,
+        "item_dim": 3072,
+        "n_items": 9922,
+        "input_dim": 6144
+      },
+      "inner_val": {
+        "n": 24772,
+        "overall": {
+          "HR@5": 0.1584,
+          "HR@10": 0.2031,
+          "NDCG@5": 0.1206,
+          "NDCG@10": 0.135
+        }
+      },
+      "pseudo_test": {
+        "n": 24772,
+        "overall": {
+          "HR@5": 0.1073,
+          "HR@10": 0.1331,
+          "NDCG@5": 0.085,
+          "NDCG@10": 0.0933
+        },
+        "seen": {
+          "n": 24699,
+          "HR@5": 0.1077,
+          "HR@10": 0.1335,
+          "NDCG@5": 0.0852,
+          "NDCG@10": 0.0936
+        },
+        "cold": {
+          "n": 73,
+          "HR@5": 0.0,
+          "HR@10": 0.0,
+          "NDCG@5": 0.0,
+          "NDCG@10": 0.0
+        }
+      }
+    }
+  },
+  "ensemble": {
+    "n_ckpts": 3,
+    "method": "mean_per_query_zscore",
+    "inner_val": {
+      "n": 24772,
+      "overall": {
+        "HR@5": 0.1779,
+        "HR@10": 0.2279,
+        "NDCG@5": 0.1366,
+        "NDCG@10": 0.1527
+      }
+    },
+    "pseudo_test": {
+      "n": 24772,
+      "overall": {
+        "HR@5": 0.1109,
+        "HR@10": 0.1375,
+        "NDCG@5": 0.0879,
+        "NDCG@10": 0.0965
+      },
+      "seen": {
+        "n": 24699,
+        "HR@5": 0.1113,
+        "HR@10": 0.1379,
+        "NDCG@5": 0.0882,
+        "NDCG@10": 0.0968
+      },
+      "cold": {
+        "n": 73,
+        "HR@5": 0.0,
+        "HR@10": 0.0137,
+        "NDCG@5": 0.0,
+        "NDCG@10": 0.0049
+      }
+    }
+  },
+  "runtime_sec": 68.0
+}

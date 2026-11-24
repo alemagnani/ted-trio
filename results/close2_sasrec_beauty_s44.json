@@ -1,0 +1,52 @@
+{
+  "experiment": "CLOSE2_sasrec",
+  "dataset": "beauty",
+  "seed": 44,
+  "config": {
+    "dataset": "beauty",
+    "seed": 44,
+    "device": "cuda:0",
+    "d": 50,
+    "blocks": 2,
+    "heads": 1,
+    "dropout": 0.5,
+    "maxlen": 20,
+    "lr": 0.001,
+    "l2_emb": 0.0,
+    "batch": 128,
+    "epochs": 200,
+    "eval_every": 10,
+    "patience": 40,
+    "loss": "bce"
+  },
+  "selection": {
+    "criterion": "protocol val HR@10",
+    "best_val_hr10": 0.0609,
+    "best_epoch": 100
+  },
+  "test": {
+    "n": 22363,
+    "overall": {
+      "HR@5": 0.0263,
+      "HR@10": 0.0476,
+      "NDCG@5": 0.0142,
+      "NDCG@10": 0.021
+    },
+    "seen": {
+      "n": 22201,
+      "HR@5": 0.0265,
+      "HR@10": 0.048,
+      "NDCG@5": 0.0143,
+      "NDCG@10": 0.0212
+    },
+    "cold": {
+      "n": 162,
+      "HR@5": 0.0,
+      "HR@10": 0.0,
+      "NDCG@5": 0.0,
+      "NDCG@10": 0.0
+    }
+  },
+  "checkpoint": "outputs/artifacts/close2_sasrec_beauty_s44/sasrec_best.pt",
+  "runtime_sec": 352.8
+}

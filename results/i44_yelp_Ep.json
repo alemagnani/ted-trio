@@ -1,0 +1,59 @@
+{
+  "experiment": "I44_2x2_cell",
+  "cell": "yelp_Ep",
+  "ckpts": [
+    "../../outputs/artifacts/i44_yelp_ep_s42_iv/j5.pt",
+    "../../outputs/artifacts/i44_yelp_ep_s43_iv/j5.pt",
+    "../../outputs/artifacts/i44_yelp_ep_s44_iv/j5.pt"
+  ],
+  "item_emb": "../../data/yelp_backbone/Yelp_openai-3-large_i22real_embeddings.pt",
+  "input_emb": null,
+  "pool": 200,
+  "unmasked": {
+    "n": 30431,
+    "overall": {
+      "HR@5": 0.0266,
+      "HR@10": 0.0416,
+      "NDCG@5": 0.0174,
+      "NDCG@10": 0.0223
+    },
+    "seen": {
+      "n": 30313,
+      "HR@5": 0.0267,
+      "HR@10": 0.0418,
+      "NDCG@5": 0.0175,
+      "NDCG@10": 0.0223
+    },
+    "cold": {
+      "n": 118,
+      "HR@5": 0.0,
+      "HR@10": 0.0085,
+      "NDCG@5": 0.0,
+      "NDCG@10": 0.003
+    }
+  },
+  "masked": {
+    "n": 30431,
+    "overall": {
+      "HR@5": 0.0221,
+      "HR@10": 0.0345,
+      "NDCG@5": 0.0147,
+      "NDCG@10": 0.0186
+    },
+    "seen": {
+      "n": 30313,
+      "HR@5": 0.0222,
+      "HR@10": 0.0346,
+      "NDCG@5": 0.0147,
+      "NDCG@10": 0.0187
+    },
+    "cold": {
+      "n": 118,
+      "HR@5": 0.0085,
+      "HR@10": 0.0085,
+      "NDCG@5": 0.0033,
+      "NDCG@10": 0.0033
+    }
+  },
+  "runtime_sec": 955.3
+}

@@ -1,0 +1,53 @@
+{
+  "experiment": "CLOSE3_serving_bench_YELP_BLEND",
+  "utc": "2026-08-16T11:28:40Z",
+  "env": {
+    "machine": "local workstation (disclosed)",
+    "cpu": "13th Gen Intel Core i5-1340P, 16 logical cores",
+    "torch": "2.12.0+cu130",
+    "faiss": "1.13.2",
+    "torch_threads": 1,
+    "faiss_threads": 1,
+    "python": "3.12.4",
+    "loadavg_at_start": [
+      5.94287109375,
+      2.0341796875,
+      1.13037109375
+    ],
+    "note": "CPU-only; batch-1 single-request wall clock; VAL histories, lengths/ids only, zero test looks"
+  },
+  "config": "deployed Yelp blend: 0.9 * z(trio full-corpus max-over-K mean-z) + 0.1 * z(free arm 0.9*b03+0.1*b01), top-10",
+  "n_items": 20033,
+  "params_per_tower": 3422980,
+  "components_batch1_ms": {
+    "trio_fullcorpus_score_z": {
+      "mean_ms": 85.30086003243923,
+      "median_ms": 84.61868949234486,
+      "p95_ms": 89.07311377115546,
+      "n": 200
+    },
+    "free_arm_score_z": {
+      "mean_ms": 6.720691816881299,
+      "median_ms": 5.930295214056969,
+      "p95_ms": 11.711972020566462,
+      "n": 200
+    }
+  },
+  "end_to_end_blend_batch1_ms": {
+    "mean_ms": 106.41274985391647,
+    "median_ms": 104.37595006078482,
+    "p95_ms": 121.08763321302831,
+    "n": 200
+  },
+  "memory_mb": {
+    "item_matrix_mb": 234.76171875,
+    "query_input_table_mb": 469.5234375,
+    "trio_params_mb_fp32": 39.17289733886719,
+    "free_arm_content_w_mb": 58.6904296875,
+    "free_arm_collab_w_mb": 9.78173828125,
+    "free_arm_covered_mb": 0.019104957580566406,
+    "total_serving_mb_trio_only": 743.4580535888672,
+    "total_serving_mb_full_blend": 811.9493265151978
+  },
+  "runtime_sec": 44.3
+}

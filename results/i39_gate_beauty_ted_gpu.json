@@ -1,0 +1,537 @@
+{
+  "experiment": "I40_tricks_gate",
+  "dataset": "beauty",
+  "smoke": false,
+  "no_real_test": true,
+  "protocol": "inner-world val(-3)/pseudo-test(-2), full-corpus max-IP, protocol.evaluate",
+  "inputs": {
+    "seq": "data/amazon_beauty_backbone/Beauty_inner.txt",
+    "n_items": 12101,
+    "item_emb": "data/amazon_beauty_backbone/Beauty_openai-3-large_i22inner_embeddings.pt",
+    "input_emb": "data/amazon_beauty_backbone/Beauty_openai-3-large_i24inner_input.pt",
+    "ckpts": [
+      "outputs/artifacts/i39_beauty_ted_s42/tower.pt",
+      "outputs/artifacts/i39_beauty_ted_s43/tower.pt",
+      "outputs/artifacts/i39_beauty_ted_s44/tower.pt",
+      "outputs/artifacts/i24_inner_openai_k4_s42_iv/j5.pt",
+      "outputs/artifacts/i24_inner_openai_k4_s43_iv/j5.pt",
+      "outputs/artifacts/i24_inner_openai_k4_s44_iv/j5.pt",
+      "outputs/artifacts/i32_inner_openai_k4_s42_distill/j5.pt",
+      "outputs/artifacts/i32_inner_openai_k4_s43_distill/j5.pt",
+      "outputs/artifacts/i32_inner_openai_k4_s44_distill/j5.pt"
+    ]
+  },
+  "per_ckpt": {
+    "i39_beauty_ted_s42/tower.pt": {
+      "path": "outputs/artifacts/i39_beauty_ted_s42/tower.pt",
+      "kind": "tricks",
+      "config": {
+        "d": 256,
+        "n_layers": 2,
+        "n_heads": 4,
+        "d_ff": 512,
+        "max_len": 20,
+        "dropout": 0.1,
+        "tau": 0.05,
+        "seed": 42,
+        "n_query_vectors": 4,
+        "item_dim": 3072,
+        "n_items": 12101,
+        "input_dim": 6144,
+        "longq_L": 0,
+        "freq_alpha": 0.0,
+        "freq_c": 5,
+        "input_dropout": 0.0,
+        "cumulative_ce": false,
+        "head_gate": "none",
+        "head_gate_tau": 1.0,
+        "multi_target_k": 0
+      },
+      "inner_val": {
+        "n": 22363,
+        "overall": {
+          "HR@5": 0.2358,
+          "HR@10": 0.3178,
+          "NDCG@5": 0.1692,
+          "NDCG@10": 0.1957
+        }
+      },
+      "pseudo_test": {
+        "n": 22363,
+        "overall": {
+          "HR@5": 0.0771,
+          "HR@10": 0.1108,
+          "NDCG@5": 0.053,
+          "NDCG@10": 0.0639
+        },
+        "seen": {
+          "n": 22151,
+          "HR@5": 0.0774,
+          "HR@10": 0.1112,
+          "NDCG@5": 0.0533,
+          "NDCG@10": 0.0641
+        },
+        "cold": {
+          "n": 212,
+          "HR@5": 0.0472,
+          "HR@10": 0.066,
+          "NDCG@5": 0.0296,
+          "NDCG@10": 0.0354
+        }
+      }
+    },
+    "i39_beauty_ted_s43/tower.pt": {
+      "path": "outputs/artifacts/i39_beauty_ted_s43/tower.pt",
+      "kind": "tricks",
+      "config": {
+        "d": 256,
+        "n_layers": 2,
+        "n_heads": 4,
+        "d_ff": 512,
+        "max_len": 20,
+        "dropout": 0.1,
+        "tau": 0.05,
+        "seed": 43,
+        "n_query_vectors": 4,
+        "item_dim": 3072,
+        "n_items": 12101,
+        "input_dim": 6144,
+        "longq_L": 0,
+        "freq_alpha": 0.0,
+        "freq_c": 5,
+        "input_dropout": 0.0,
+        "cumulative_ce": false,
+        "head_gate": "none",
+        "head_gate_tau": 1.0,
+        "multi_target_k": 0
+      },
+      "inner_val": {
+        "n": 22363,
+        "overall": {
+          "HR@5": 0.2479,
+          "HR@10": 0.3259,
+          "NDCG@5": 0.178,
+          "NDCG@10": 0.2032
+        }
+      },
+      "pseudo_test": {
+        "n": 22363,
+        "overall": {
+          "HR@5": 0.0761,
+          "HR@10": 0.1121,
+          "NDCG@5": 0.0524,
+          "NDCG@10": 0.0639
+        },
+        "seen": {
+          "n": 22151,
+          "HR@5": 0.0767,
+          "HR@10": 0.1129,
+          "NDCG@5": 0.0527,
+          "NDCG@10": 0.0644
+        },
+        "cold": {
+          "n": 212,
+          "HR@5": 0.0189,
+          "HR@10": 0.033,
+          "NDCG@5": 0.0142,
+          "NDCG@10": 0.0187
+        }
+      }
+    },
+    "i39_beauty_ted_s44/tower.pt": {
+      "path": "outputs/artifacts/i39_beauty_ted_s44/tower.pt",
+      "kind": "tricks",
+      "config": {
+        "d": 256,
+        "n_layers": 2,
+        "n_heads": 4,
+        "d_ff": 512,
+        "max_len": 20,
+        "dropout": 0.1,
+        "tau": 0.05,
+        "seed": 44,
+        "n_query_vectors": 4,
+        "item_dim": 3072,
+        "n_items": 12101,
+        "input_dim": 6144,
+        "longq_L": 0,
+        "freq_alpha": 0.0,
+        "freq_c": 5,
+        "input_dropout": 0.0,
+        "cumulative_ce": false,
+        "head_gate": "none",
+        "head_gate_tau": 1.0,
+        "multi_target_k": 0
+      },
+      "inner_val": {
+        "n": 22363,
+        "overall": {
+          "HR@5": 0.2539,
+          "HR@10": 0.3344,
+          "NDCG@5": 0.1829,
+          "NDCG@10": 0.2089
+        }
+      },
+      "pseudo_test": {
+        "n": 22363,
+        "overall": {
+          "HR@5": 0.0769,
+          "HR@10": 0.111,
+          "NDCG@5": 0.0529,
+          "NDCG@10": 0.0639
+        },
+        "seen": {
+          "n": 22151,
+          "HR@5": 0.0772,
+          "HR@10": 0.1115,
+          "NDCG@5": 0.0532,
+          "NDCG@10": 0.0643
+        },
+        "cold": {
+          "n": 212,
+          "HR@5": 0.0377,
+          "HR@10": 0.0566,
+          "NDCG@5": 0.0212,
+          "NDCG@10": 0.0268
+        }
+      }
+    },
+    "i24_inner_openai_k4_s42_iv/j5.pt": {
+      "path": "outputs/artifacts/i24_inner_openai_k4_s42_iv/j5.pt",
+      "kind": "frozen",
+      "config": {
+        "d": 256,
+        "n_layers": 2,
+        "n_heads": 4,
+        "d_ff": 512,
+        "max_len": 20,
+        "dropout": 0.1,
+        "tau": 0.05,
+        "seed": 42,
+        "n_query_vectors": 4,
+        "item_dim": 3072,
+        "n_items": 12101,
+        "input_dim": 6144
+      },
+      "inner_val": {
+        "n": 22363,
+        "overall": {
+          "HR@5": 0.1842,
+          "HR@10": 0.2564,
+          "NDCG@5": 0.1289,
+          "NDCG@10": 0.1521
+        }
+      },
+      "pseudo_test": {
+        "n": 22363,
+        "overall": {
+          "HR@5": 0.0745,
+          "HR@10": 0.1108,
+          "NDCG@5": 0.0492,
+          "NDCG@10": 0.061
+        },
+        "seen": {
+          "n": 22151,
+          "HR@5": 0.075,
+          "HR@10": 0.1116,
+          "NDCG@5": 0.0496,
+          "NDCG@10": 0.0614
+        },
+        "cold": {
+          "n": 212,
+          "HR@5": 0.0236,
+          "HR@10": 0.033,
+          "NDCG@5": 0.0136,
+          "NDCG@10": 0.0166
+        }
+      }
+    },
+    "i24_inner_openai_k4_s43_iv/j5.pt": {
+      "path": "outputs/artifacts/i24_inner_openai_k4_s43_iv/j5.pt",
+      "kind": "frozen",
+      "config": {
+        "d": 256,
+        "n_layers": 2,
+        "n_heads": 4,
+        "d_ff": 512,
+        "max_len": 20,
+        "dropout": 0.1,
+        "tau": 0.05,
+        "seed": 43,
+        "n_query_vectors": 4,
+        "item_dim": 3072,
+        "n_items": 12101,
+        "input_dim": 6144
+      },
+      "inner_val": {
+        "n": 22363,
+        "overall": {
+          "HR@5": 0.2102,
+          "HR@10": 0.2851,
+          "NDCG@5": 0.1484,
+          "NDCG@10": 0.1726
+        }
+      },
+      "pseudo_test": {
+        "n": 22363,
+        "overall": {
+          "HR@5": 0.0751,
+          "HR@10": 0.1105,
+          "NDCG@5": 0.0497,
+          "NDCG@10": 0.0611
+        },
+        "seen": {
+          "n": 22151,
+          "HR@5": 0.0757,
+          "HR@10": 0.1112,
+          "NDCG@5": 0.0501,
+          "NDCG@10": 0.0615
+        },
+        "cold": {
+          "n": 212,
+          "HR@5": 0.0142,
+          "HR@10": 0.0377,
+          "NDCG@5": 0.0095,
+          "NDCG@10": 0.0171
+        }
+      }
+    },
+    "i24_inner_openai_k4_s44_iv/j5.pt": {
+      "path": "outputs/artifacts/i24_inner_openai_k4_s44_iv/j5.pt",
+      "kind": "frozen",
+      "config": {
+        "d": 256,
+        "n_layers": 2,
+        "n_heads": 4,
+        "d_ff": 512,
+        "max_len": 20,
+        "dropout": 0.1,
+        "tau": 0.05,
+        "seed": 44,
+        "n_query_vectors": 4,
+        "item_dim": 3072,
+        "n_items": 12101,
+        "input_dim": 6144
+      },
+      "inner_val": {
+        "n": 22363,
+        "overall": {
+          "HR@5": 0.2051,
+          "HR@10": 0.2796,
+          "NDCG@5": 0.1446,
+          "NDCG@10": 0.1686
+        }
+      },
+      "pseudo_test": {
+        "n": 22363,
+        "overall": {
+          "HR@5": 0.0749,
+          "HR@10": 0.1129,
+          "NDCG@5": 0.0498,
+          "NDCG@10": 0.062
+        },
+        "seen": {
+          "n": 22151,
+          "HR@5": 0.0753,
+          "HR@10": 0.1133,
+          "NDCG@5": 0.0501,
+          "NDCG@10": 0.0623
+        },
+        "cold": {
+          "n": 212,
+          "HR@5": 0.0283,
+          "HR@10": 0.066,
+          "NDCG@5": 0.014,
+          "NDCG@10": 0.0264
+        }
+      }
+    },
+    "i32_inner_openai_k4_s42_distill/j5.pt": {
+      "path": "outputs/artifacts/i32_inner_openai_k4_s42_distill/j5.pt",
+      "kind": "frozen",
+      "config": {
+        "d": 256,
+        "n_layers": 2,
+        "n_heads": 4,
+        "d_ff": 512,
+        "max_len": 20,
+        "dropout": 0.1,
+        "tau": 0.05,
+        "seed": 42,
+        "n_query_vectors": 4,
+        "item_dim": 3072,
+        "n_items": 12101,
+        "input_dim": 6144
+      },
+      "inner_val": {
+        "n": 22363,
+        "overall": {
+          "HR@5": 0.1912,
+          "HR@10": 0.2644,
+          "NDCG@5": 0.1297,
+          "NDCG@10": 0.1533
+        }
+      },
+      "pseudo_test": {
+        "n": 22363,
+        "overall": {
+          "HR@5": 0.0774,
+          "HR@10": 0.1168,
+          "NDCG@5": 0.0509,
+          "NDCG@10": 0.0637
+        },
+        "seen": {
+          "n": 22151,
+          "HR@5": 0.0779,
+          "HR@10": 0.1174,
+          "NDCG@5": 0.0513,
+          "NDCG@10": 0.0641
+        },
+        "cold": {
+          "n": 212,
+          "HR@5": 0.0236,
+          "HR@10": 0.0613,
+          "NDCG@5": 0.0104,
+          "NDCG@10": 0.0228
+        }
+      }
+    },
+    "i32_inner_openai_k4_s43_distill/j5.pt": {
+      "path": "outputs/artifacts/i32_inner_openai_k4_s43_distill/j5.pt",
+      "kind": "frozen",
+      "config": {
+        "d": 256,
+        "n_layers": 2,
+        "n_heads": 4,
+        "d_ff": 512,
+        "max_len": 20,
+        "dropout": 0.1,
+        "tau": 0.05,
+        "seed": 43,
+        "n_query_vectors": 4,
+        "item_dim": 3072,
+        "n_items": 12101,
+        "input_dim": 6144
+      },
+      "inner_val": {
+        "n": 22363,
+        "overall": {
+          "HR@5": 0.1909,
+          "HR@10": 0.2669,
+          "NDCG@5": 0.13,
+          "NDCG@10": 0.1545
+        }
+      },
+      "pseudo_test": {
+        "n": 22363,
+        "overall": {
+          "HR@5": 0.0779,
+          "HR@10": 0.1163,
+          "NDCG@5": 0.051,
+          "NDCG@10": 0.0634
+        },
+        "seen": {
+          "n": 22151,
+          "HR@5": 0.0784,
+          "HR@10": 0.1169,
+          "NDCG@5": 0.0514,
+          "NDCG@10": 0.0638
+        },
+        "cold": {
+          "n": 212,
+          "HR@5": 0.0189,
+          "HR@10": 0.0519,
+          "NDCG@5": 0.009,
+          "NDCG@10": 0.0196
+        }
+      }
+    },
+    "i32_inner_openai_k4_s44_distill/j5.pt": {
+      "path": "outputs/artifacts/i32_inner_openai_k4_s44_distill/j5.pt",
+      "kind": "frozen",
+      "config": {
+        "d": 256,
+        "n_layers": 2,
+        "n_heads": 4,
+        "d_ff": 512,
+        "max_len": 20,
+        "dropout": 0.1,
+        "tau": 0.05,
+        "seed": 44,
+        "n_query_vectors": 4,
+        "item_dim": 3072,
+        "n_items": 12101,
+        "input_dim": 6144
+      },
+      "inner_val": {
+        "n": 22363,
+        "overall": {
+          "HR@5": 0.1887,
+          "HR@10": 0.264,
+          "NDCG@5": 0.1288,
+          "NDCG@10": 0.1531
+        }
+      },
+      "pseudo_test": {
+        "n": 22363,
+        "overall": {
+          "HR@5": 0.0779,
+          "HR@10": 0.1166,
+          "NDCG@5": 0.0513,
+          "NDCG@10": 0.0638
+        },
+        "seen": {
+          "n": 22151,
+          "HR@5": 0.0784,
+          "HR@10": 0.1171,
+          "NDCG@5": 0.0517,
+          "NDCG@10": 0.0642
+        },
+        "cold": {
+          "n": 212,
+          "HR@5": 0.0236,
+          "HR@10": 0.0708,
+          "NDCG@5": 0.011,
+          "NDCG@10": 0.0257
+        }
+      }
+    }
+  },
+  "ensemble": {
+    "n_ckpts": 9,
+    "method": "mean_per_query_zscore",
+    "inner_val": {
+      "n": 22363,
+      "overall": {
+        "HR@5": 0.2229,
+        "HR@10": 0.3124,
+        "NDCG@5": 0.1512,
+        "NDCG@10": 0.1801
+      }
+    },
+    "pseudo_test": {
+      "n": 22363,
+      "overall": {
+        "HR@5": 0.0829,
+        "HR@10": 0.122,
+        "NDCG@5": 0.054,
+        "NDCG@10": 0.0666
+      },
+      "seen": {
+        "n": 22151,
+        "HR@5": 0.0834,
+        "HR@10": 0.1226,
+        "NDCG@5": 0.0543,
+        "NDCG@10": 0.067
+      },
+      "cold": {
+        "n": 212,
+        "HR@5": 0.033,
+        "HR@10": 0.0613,
+        "NDCG@5": 0.0164,
+        "NDCG@10": 0.0256
+      }
+    }
+  },
+  "runtime_sec": 1366.5
+}

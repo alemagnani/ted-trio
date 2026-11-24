@@ -1,0 +1,22 @@
+# md5 of every text/JSON input behind the paper (run from repo root: md5sum -c docs/data_checksums.md5)
+# Embedding/.pt files are not listed: OpenAI re-embeds are not bit-deterministic and torch serialisation varies.
+cb03635343187f36526ed4ba48102b53  data/amazon_beauty_backbone/Beauty.txt
+1f58a1eb2887ac7d94d1d2e554be4414  data/amazon_beauty_backbone/Beauty_inner.txt
+7bba69c8182f2e390efa4d3f36b2e00e  data/amazon_beauty_backbone/Beauty_item2attributes.json
+b139ecacfc81d0fb642bc2f448f13843  data/amazon_toys_backbone/Toys_and_Games.txt
+083a76eb1c83a308189e7911fccb166d  data/amazon_toys_backbone/Toys_inner.txt
+768a7d5f2e3078248ed90623c9b709c7  data/amazon_toys_backbone/Toys_and_Games_item2attributes.json
+9691c051152edf528a56581da65b1ce3  data/amazon_sports_backbone/Sports_and_Outdoors.txt
+ac5b5703ea48e1eadafe3160259c5096  data/amazon_sports_backbone/Sports_inner.txt
+ce62254c6e8387c130bc13366c0ba499  data/amazon_sports_backbone/Sports_and_Outdoors_item2attributes.json
+0cda39d087a34cf922b835c78d14b7fd  data/amazon_instruments_backbone/Musical_Instruments.txt
+752957691b1c53317c3c73de0bc62e43  data/amazon_instruments_backbone/Instruments_inner.txt
+da7989002c123e7680afaaa5141fb85b  data/yelp_backbone/Yelp.txt
+05016167cbb4c82558bb860ee33084bd  data/yelp_backbone/Yelp_inner.txt
+ac589be25a8891e249bdc14e15cd3fdc  data/amazon_meta/beauty_id2meta.json
+96456be41c3d2d57d7b7be63e9516e8b  data/amazon_meta/toys_id2meta.json
+0e72b3ddb749c78257d0a1ddd514c4c4  data/amazon_meta/sports_id2meta.json
+c819b772cc22d49497cb8731b0b0afd8  data/amazon_meta/instruments_id2meta.json
+189b749d1e16dcba08094911ed152334  data/yelp_meta/LETTER_Yelp.item.json
+069d831b3dec51bc5d26c524ff74c442  data/yelp_meta/yelp_id2meta.json
+406712d3f6fc1e32d7c5d05a5116a626  data/amazon_beauty_backbone/i25_texts_inner_pred3.json

@@ -1,0 +1,31 @@
+{
+  "experiment": "CLOSE2_tiger_score",
+  "dataset": "yelp",
+  "seed": 44,
+  "beams": "outputs/artifacts/close2/dumps/expand/yelp_tiger_beams_test_s44.jsonl",
+  "n": 30431,
+  "n_beam_records": 608620,
+  "invalid_beam_frac": 0.0009,
+  "overall": {
+    "n": 30431,
+    "HR@5": 0.0218,
+    "HR@10": 0.0346,
+    "NDCG@5": 0.0139,
+    "NDCG@10": 0.018
+  },
+  "seen": {
+    "n": 30313,
+    "HR@5": 0.0218,
+    "HR@10": 0.0348,
+    "NDCG@5": 0.0139,
+    "NDCG@10": 0.0181
+  },
+  "cold": {
+    "n": 118,
+    "HR@5": 0.0,
+    "HR@10": 0.0,
+    "NDCG@5": 0.0,
+    "NDCG@10": 0.0
+  },
+  "seed_note": "seed field corrected post-hoc; scorer --seed defaulted to 42; checkpoint provenance verified in box logs (close2_tiger_seed_44/results/ckpt_best.pt)"
+}

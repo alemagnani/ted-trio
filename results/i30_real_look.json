@@ -1,0 +1,184 @@
+{
+  "experiment": "I30_real_look",
+  "test_looks": 1,
+  "candidate": {
+    "w_selected": 1.0,
+    "selection": "real val (contaminated caveat; inner-world independently selected 1.0)",
+    "checkpoints": {
+      "42": "outputs/artifacts/i30_toys_real_openai_k4_s42_iv/j5.pt",
+      "43": "outputs/artifacts/i30_toys_real_openai_k4_s43_iv/j5.pt",
+      "44": "outputs/artifacts/i30_toys_real_openai_k4_s44_iv/j5.pt"
+    },
+    "item_emb": "data/amazon_toys_backbone/Toys_openai-3-large_i22real_embeddings.pt",
+    "input_emb": "data/amazon_toys_backbone/Toys_openai-3-large_i24real_input.pt",
+    "ensemble": "mean of per-query z-scored K4 max-IP tower scores (3 seeds, collab-augmented inputs)"
+  },
+  "bars": {
+    "TIGER_Toys": {
+      "HR@5": 0.0521,
+      "NDCG@5": 0.0371
+    },
+    "inner_gate_trio_pseudo_w1.0": {
+      "HR@5": 0.0823,
+      "HR@10": 0.1229,
+      "NDCG@5": 0.0536,
+      "NDCG@10": 0.0668
+    },
+    "inner_world_selected_w": 1.0
+  },
+  "real_val_sweep": {
+    "0.0": {
+      "HR@5": 0.0676,
+      "HR@10": 0.108,
+      "NDCG@5": 0.0337,
+      "NDCG@10": 0.0468
+    },
+    "0.5": {
+      "HR@5": 0.0949,
+      "HR@10": 0.1526,
+      "NDCG@5": 0.0481,
+      "NDCG@10": 0.0666
+    },
+    "0.7": {
+      "HR@5": 0.1284,
+      "HR@10": 0.2037,
+      "NDCG@5": 0.0659,
+      "NDCG@10": 0.0902
+    },
+    "0.8": {
+      "HR@5": 0.1593,
+      "HR@10": 0.2416,
+      "NDCG@5": 0.0837,
+      "NDCG@10": 0.1103
+    },
+    "0.9": {
+      "HR@5": 0.2029,
+      "HR@10": 0.2935,
+      "NDCG@5": 0.1154,
+      "NDCG@10": 0.1446
+    },
+    "1.0": {
+      "HR@5": 0.2544,
+      "HR@10": 0.3453,
+      "NDCG@5": 0.1806,
+      "NDCG@10": 0.21
+    }
+  },
+  "test": {
+    "0.0": {
+      "HR@5": 0.0602,
+      "HR@10": 0.0942,
+      "NDCG@5": 0.0305,
+      "NDCG@10": 0.0414,
+      "cold": {
+        "HR@5": 0.0946,
+        "HR@10": 0.1453
+      }
+    },
+    "1.0": {
+      "HR@5": 0.0804,
+      "HR@10": 0.121,
+      "NDCG@5": 0.051,
+      "NDCG@10": 0.0641,
+      "cold": {
+        "HR@5": 0.0236,
+        "HR@10": 0.0777
+      }
+    }
+  },
+  "significance_vs_w0": {
+    "HR@5": {
+      "mean_a": 0.08041417679785699,
+      "mean_b": 0.06022048217597362,
+      "delta": 0.020193694621883373,
+      "bootstrap": {
+        "mean_delta": 0.020193694621883373,
+        "ci95": [
+          0.016587677725118485,
+          0.02390274057284154
+        ],
+        "p_gt_zero": 1.0,
+        "n_users": 19412,
+        "n_boot": 10000
+      },
+      "randomization": {
+        "mean_delta": 0.020193694621883373,
+        "p_two_sided": 9.999000099990002e-05,
+        "n_users": 19412,
+        "n_perm": 10000
+      },
+      "significant_95": true,
+      "verdict": "A"
+    },
+    "HR@10": {
+      "mean_a": 0.12095610962291366,
+      "mean_b": 0.09422007005975686,
+      "delta": 0.02673603956315681,
+      "bootstrap": {
+        "mean_delta": 0.02673603956315681,
+        "ci95": [
+          0.022819647640634662,
+          0.03075417267669483
+        ],
+        "p_gt_zero": 1.0,
+        "n_users": 19412,
+        "n_boot": 10000
+      },
+      "randomization": {
+        "mean_delta": 0.02673603956315681,
+        "p_two_sided": 9.999000099990002e-05,
+        "n_users": 19412,
+        "n_perm": 10000
+      },
+      "significant_95": true,
+      "verdict": "A"
+    },
+    "NDCG@5": {
+      "mean_a": 0.05100884914625411,
+      "mean_b": 0.030458984348839296,
+      "delta": 0.020549864797414812,
+      "bootstrap": {
+        "mean_delta": 0.020549864797414812,
+        "ci95": [
+          0.01825823042032806,
+          0.022929797720263087
+        ],
+        "p_gt_zero": 1.0,
+        "n_users": 19412,
+        "n_boot": 10000
+      },
+      "randomization": {
+        "mean_delta": 0.020549864797414812,
+        "p_two_sided": 9.999000099990002e-05,
+        "n_users": 19412,
+        "n_perm": 10000
+      },
+      "significant_95": true,
+      "verdict": "A"
+    },
+    "NDCG@10": {
+      "mean_a": 0.06406962974259908,
+      "mean_b": 0.04140960491768434,
+      "delta": 0.02266002482491475,
+      "bootstrap": {
+        "mean_delta": 0.02266002482491475,
+        "ci95": [
+          0.02047163801585924,
+          0.02492033824333819
+        ],
+        "p_gt_zero": 1.0,
+        "n_users": 19412,
+        "n_boot": 10000
+      },
+      "randomization": {
+        "mean_delta": 0.02266002482491475,
+        "p_two_sided": 9.999000099990002e-05,
+        "n_users": 19412,
+        "n_perm": 10000
+      },
+      "significant_95": true,
+      "verdict": "A"
+    }
+  },
+  "runtime_sec": 5454.7
+}

@@ -1,0 +1,142 @@
+{
+  "experiment": "I29_adaptive_k",
+  "world": "inner",
+  "trio": "i24_s42+43+44",
+  "n": 22363,
+  "ens_HR@10": 0.1173,
+  "single_HR@10": 0.1108,
+  "fail_rate": 0.8827,
+  "auc_d_jac": 0.7316,
+  "fail_rate_by_d_jac_quintile": [
+    0.71,
+    0.8608,
+    0.9176,
+    0.9408,
+    0.965
+  ],
+  "auc_d_qdisp": 0.6948,
+  "fail_rate_by_d_qdisp_quintile": [
+    0.7458,
+    0.8636,
+    0.9144,
+    0.9392,
+    0.9504
+  ],
+  "adaptive_frontier_d_jac": [
+    {
+      "q": 0.1,
+      "thresh": 0.3256,
+      "HR@10": 0.1169,
+      "mean_probes": 11.09
+    },
+    {
+      "q": 0.2,
+      "thresh": 0.4188,
+      "HR@10": 0.1164,
+      "mean_probes": 10.37
+    },
+    {
+      "q": 0.3,
+      "thresh": 0.5238,
+      "HR@10": 0.1158,
+      "mean_probes": 9.56
+    },
+    {
+      "q": 0.4,
+      "thresh": 0.5983,
+      "HR@10": 0.1153,
+      "mean_probes": 8.75
+    },
+    {
+      "q": 0.5,
+      "thresh": 0.6627,
+      "HR@10": 0.1145,
+      "mean_probes": 7.9
+    },
+    {
+      "q": 0.6,
+      "thresh": 0.7222,
+      "HR@10": 0.1138,
+      "mean_probes": 7.13
+    },
+    {
+      "q": 0.7,
+      "thresh": 0.7808,
+      "HR@10": 0.1132,
+      "mean_probes": 6.39
+    },
+    {
+      "q": 0.8,
+      "thresh": 0.8403,
+      "HR@10": 0.1126,
+      "mean_probes": 5.56
+    },
+    {
+      "q": 0.9,
+      "thresh": 0.8991,
+      "HR@10": 0.1114,
+      "mean_probes": 4.78
+    }
+  ],
+  "adaptive_frontier_d_qdisp": [
+    {
+      "q": 0.1,
+      "thresh": 0.1387,
+      "HR@10": 0.1171,
+      "mean_probes": 11.2
+    },
+    {
+      "q": 0.2,
+      "thresh": 0.1987,
+      "HR@10": 0.1158,
+      "mean_probes": 10.4
+    },
+    {
+      "q": 0.3,
+      "thresh": 0.2396,
+      "HR@10": 0.1154,
+      "mean_probes": 9.6
+    },
+    {
+      "q": 0.4,
+      "thresh": 0.27,
+      "HR@10": 0.1145,
+      "mean_probes": 8.8
+    },
+    {
+      "q": 0.5,
+      "thresh": 0.2957,
+      "HR@10": 0.114,
+      "mean_probes": 8.0
+    },
+    {
+      "q": 0.6,
+      "thresh": 0.3194,
+      "HR@10": 0.1135,
+      "mean_probes": 7.2
+    },
+    {
+      "q": 0.7,
+      "thresh": 0.344,
+      "HR@10": 0.1128,
+      "mean_probes": 6.4
+    },
+    {
+      "q": 0.8,
+      "thresh": 0.3715,
+      "HR@10": 0.1122,
+      "mean_probes": 5.6
+    },
+    {
+      "q": 0.9,
+      "thresh": 0.4098,
+      "HR@10": 0.1113,
+      "mean_probes": 4.8
+    }
+  ],
+  "fixed_policies": {
+    "single_4probe_HR@10": 0.1108,
+    "full_12probe_HR@10": 0.1173
+  },
+  "runtime_sec": 536.9
+}

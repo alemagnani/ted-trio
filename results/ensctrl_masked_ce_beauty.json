@@ -1,0 +1,95 @@
+{
+  "experiment": "E-ENSCTRL_masked_descriptive_rescore",
+  "prereg": "PREREG-E-ENSCTRL (unmasked primary + masked descriptive)",
+  "dataset": "beauty",
+  "loss": "ce",
+  "no_selection": true,
+  "configs_scored": 1,
+  "booked_source": "research/results/ensctrl_sasrec_ce_beauty.json",
+  "frozen_w": [
+    0.30000000000000004,
+    0.30000000000000004,
+    0.3999999999999999
+  ],
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "masking": "i41/i43 convention: protocol.evaluate exclude_history=True (train+val items within the max_len=20 evaluator window)",
+  "unmasked_reproduction_guard": {
+    "pass": true,
+    "checks": {
+      "HR@5": {
+        "recomputed": 0.0551,
+        "booked": 0.0551
+      },
+      "NDCG@5": {
+        "recomputed": 0.0316,
+        "booked": 0.0316
+      },
+      "HR@10": {
+        "recomputed": 0.0857,
+        "booked": 0.0857
+      },
+      "NDCG@10": {
+        "recomputed": 0.0415,
+        "booked": 0.0415
+      }
+    }
+  },
+  "repeat_target_share": 0.0,
+  "unmasked": {
+    "n": 22363,
+    "overall": {
+      "HR@5": 0.0551,
+      "HR@10": 0.0857,
+      "NDCG@5": 0.0316,
+      "NDCG@10": 0.0415
+    },
+    "seen": {
+      "n": 22201,
+      "HR@5": 0.0555,
+      "HR@10": 0.0863,
+      "NDCG@5": 0.0318,
+      "NDCG@10": 0.0418
+    },
+    "cold": {
+      "n": 162,
+      "HR@5": 0.0,
+      "HR@10": 0.0,
+      "NDCG@5": 0.0,
+      "NDCG@10": 0.0
+    }
+  },
+  "masked": {
+    "n": 22363,
+    "overall": {
+      "HR@5": 0.0689,
+      "HR@10": 0.0954,
+      "NDCG@5": 0.0492,
+      "NDCG@10": 0.0578
+    },
+    "seen": {
+      "n": 22201,
+      "HR@5": 0.0694,
+      "HR@10": 0.0961,
+      "NDCG@5": 0.0496,
+      "NDCG@10": 0.0582
+    },
+    "cold": {
+      "n": 162,
+      "HR@5": 0.0,
+      "HR@10": 0.0,
+      "NDCG@5": 0.0,
+      "NDCG@10": 0.0
+    }
+  },
+  "delta_masked_minus_unmasked": {
+    "HR@5": 0.0138,
+    "HR@10": 0.0097,
+    "NDCG@5": 0.0176,
+    "NDCG@10": 0.0163
+  },
+  "runtime_sec": 2.0
+}

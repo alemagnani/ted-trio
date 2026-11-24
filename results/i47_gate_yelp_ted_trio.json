@@ -1,0 +1,231 @@
+{
+  "experiment": "I40_tricks_gate",
+  "dataset": "beauty",
+  "smoke": false,
+  "no_real_test": true,
+  "protocol": "inner-world val(-3)/pseudo-test(-2), full-corpus max-IP, protocol.evaluate",
+  "inputs": {
+    "seq": "data/yelp_backbone/Yelp_inner.txt",
+    "n_items": 20033,
+    "item_emb": "data/yelp_backbone/Yelp_openai-3-large_i22inner_embeddings.pt",
+    "input_emb": "data/yelp_backbone/Yelp_openai-3-large_i24inner_input.pt",
+    "ckpts": [
+      "outputs/artifacts/i47ted_yelp_inner_s42/tower.pt",
+      "outputs/artifacts/i47ted_yelp_inner_s43/tower.pt",
+      "outputs/artifacts/i47ted_yelp_inner_s44/tower.pt"
+    ]
+  },
+  "per_ckpt": {
+    "i47ted_yelp_inner_s42/tower.pt": {
+      "path": "outputs/artifacts/i47ted_yelp_inner_s42/tower.pt",
+      "kind": "tricks",
+      "config": {
+        "d": 256,
+        "n_layers": 2,
+        "n_heads": 4,
+        "d_ff": 512,
+        "max_len": 20,
+        "dropout": 0.1,
+        "tau": 0.05,
+        "seed": 42,
+        "n_query_vectors": 4,
+        "item_dim": 3072,
+        "n_items": 20033,
+        "input_dim": 6144,
+        "longq_L": 0,
+        "freq_alpha": 0.0,
+        "freq_c": 5,
+        "input_dropout": 0.0,
+        "cumulative_ce": false,
+        "head_gate": "none",
+        "head_gate_tau": 1.0,
+        "multi_target_k": 0
+      },
+      "inner_val": {
+        "n": 30431,
+        "overall": {
+          "HR@5": 0.0531,
+          "HR@10": 0.0776,
+          "NDCG@5": 0.0365,
+          "NDCG@10": 0.0444
+        }
+      },
+      "pseudo_test": {
+        "n": 30431,
+        "overall": {
+          "HR@5": 0.0294,
+          "HR@10": 0.0451,
+          "NDCG@5": 0.0198,
+          "NDCG@10": 0.0248
+        },
+        "seen": {
+          "n": 30261,
+          "HR@5": 0.0296,
+          "HR@10": 0.0452,
+          "NDCG@5": 0.0199,
+          "NDCG@10": 0.0249
+        },
+        "cold": {
+          "n": 170,
+          "HR@5": 0.0059,
+          "HR@10": 0.0118,
+          "NDCG@5": 0.0023,
+          "NDCG@10": 0.004
+        }
+      }
+    },
+    "i47ted_yelp_inner_s43/tower.pt": {
+      "path": "outputs/artifacts/i47ted_yelp_inner_s43/tower.pt",
+      "kind": "tricks",
+      "config": {
+        "d": 256,
+        "n_layers": 2,
+        "n_heads": 4,
+        "d_ff": 512,
+        "max_len": 20,
+        "dropout": 0.1,
+        "tau": 0.05,
+        "seed": 43,
+        "n_query_vectors": 4,
+        "item_dim": 3072,
+        "n_items": 20033,
+        "input_dim": 6144,
+        "longq_L": 0,
+        "freq_alpha": 0.0,
+        "freq_c": 5,
+        "input_dropout": 0.0,
+        "cumulative_ce": false,
+        "head_gate": "none",
+        "head_gate_tau": 1.0,
+        "multi_target_k": 0
+      },
+      "inner_val": {
+        "n": 30431,
+        "overall": {
+          "HR@5": 0.0577,
+          "HR@10": 0.0824,
+          "NDCG@5": 0.0394,
+          "NDCG@10": 0.0473
+        }
+      },
+      "pseudo_test": {
+        "n": 30431,
+        "overall": {
+          "HR@5": 0.0302,
+          "HR@10": 0.0458,
+          "NDCG@5": 0.0203,
+          "NDCG@10": 0.0254
+        },
+        "seen": {
+          "n": 30261,
+          "HR@5": 0.0303,
+          "HR@10": 0.046,
+          "NDCG@5": 0.0205,
+          "NDCG@10": 0.0255
+        },
+        "cold": {
+          "n": 170,
+          "HR@5": 0.0,
+          "HR@10": 0.0118,
+          "NDCG@5": 0.0,
+          "NDCG@10": 0.0036
+        }
+      }
+    },
+    "i47ted_yelp_inner_s44/tower.pt": {
+      "path": "outputs/artifacts/i47ted_yelp_inner_s44/tower.pt",
+      "kind": "tricks",
+      "config": {
+        "d": 256,
+        "n_layers": 2,
+        "n_heads": 4,
+        "d_ff": 512,
+        "max_len": 20,
+        "dropout": 0.1,
+        "tau": 0.05,
+        "seed": 44,
+        "n_query_vectors": 4,
+        "item_dim": 3072,
+        "n_items": 20033,
+        "input_dim": 6144,
+        "longq_L": 0,
+        "freq_alpha": 0.0,
+        "freq_c": 5,
+        "input_dropout": 0.0,
+        "cumulative_ce": false,
+        "head_gate": "none",
+        "head_gate_tau": 1.0,
+        "multi_target_k": 0
+      },
+      "inner_val": {
+        "n": 30431,
+        "overall": {
+          "HR@5": 0.06,
+          "HR@10": 0.0878,
+          "NDCG@5": 0.0414,
+          "NDCG@10": 0.0503
+        }
+      },
+      "pseudo_test": {
+        "n": 30431,
+        "overall": {
+          "HR@5": 0.0298,
+          "HR@10": 0.0461,
+          "NDCG@5": 0.02,
+          "NDCG@10": 0.0252
+        },
+        "seen": {
+          "n": 30261,
+          "HR@5": 0.03,
+          "HR@10": 0.0463,
+          "NDCG@5": 0.0201,
+          "NDCG@10": 0.0253
+        },
+        "cold": {
+          "n": 170,
+          "HR@5": 0.0,
+          "HR@10": 0.0118,
+          "NDCG@5": 0.0,
+          "NDCG@10": 0.0038
+        }
+      }
+    }
+  },
+  "ensemble": {
+    "n_ckpts": 3,
+    "method": "mean_per_query_zscore",
+    "inner_val": {
+      "n": 30431,
+      "overall": {
+        "HR@5": 0.0601,
+        "HR@10": 0.0859,
+        "NDCG@5": 0.0416,
+        "NDCG@10": 0.0499
+      }
+    },
+    "pseudo_test": {
+      "n": 30431,
+      "overall": {
+        "HR@5": 0.032,
+        "HR@10": 0.048,
+        "NDCG@5": 0.0216,
+        "NDCG@10": 0.0267
+      },
+      "seen": {
+        "n": 30261,
+        "HR@5": 0.0322,
+        "HR@10": 0.0482,
+        "NDCG@5": 0.0217,
+        "NDCG@10": 0.0268
+      },
+      "cold": {
+        "n": 170,
+        "HR@5": 0.0059,
+        "HR@10": 0.0118,
+        "NDCG@5": 0.0023,
+        "NDCG@10": 0.0044
+      }
+    }
+  },
+  "runtime_sec": 155.7
+}

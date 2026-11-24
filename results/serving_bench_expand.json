@@ -1,0 +1,136 @@
+{
+  "experiment": "CLOSE3_serving_bench_EXPAND",
+  "utc": "2026-08-11T18:33:55Z",
+  "env": {
+    "machine": "local workstation (disclosed)",
+    "cpu": "13th Gen Intel Core i5-1340P, 16 logical cores",
+    "torch": "2.12.0+cu130",
+    "faiss": "1.13.2",
+    "torch_threads": 12,
+    "faiss_threads": 16,
+    "python": "3.12.4",
+    "loadavg_at_start": [
+      3.859375,
+      18.38916015625,
+      24.48876953125
+    ],
+    "note": "CPU-only; batch-1 numbers are single-request wall clock"
+  },
+  "datasets": {
+    "instruments": {
+      "params_per_tower": 3422980,
+      "params_trio": 10268940,
+      "query_encoding_ms": {
+        "single_batch1": {
+          "mean_ms": 2.321407883428037,
+          "median_ms": 2.2621750831604004,
+          "p95_ms": 2.849371964111924,
+          "n": 200
+        },
+        "trio_batch1": {
+          "mean_ms": 7.142641302198172,
+          "median_ms": 7.026479579508305,
+          "p95_ms": 8.181015960872173,
+          "n": 200
+        }
+      },
+      "ann": {
+        "trio_12probe_top500_batch1": {
+          "mean_ms": 11.316580609418452,
+          "median_ms": 9.779166895896196,
+          "p95_ms": 22.38405859097836,
+          "n": 200
+        },
+        "trio_batched_throughput": {
+          "requests_per_call": 200,
+          "call_ms": 4439.01098985225,
+          "per_request_ms": 22.195054949261248,
+          "qps": 45.055081065851766
+        },
+        "index": {
+          "type": "IndexFlatIP (exact IP)",
+          "n_items": 9922,
+          "dim": 3072,
+          "memory_mb": 116.2734375
+        }
+      },
+      "merge": {
+        "union_rescore_z_mean_top10": {
+          "mean_ms": 6.930798050016165,
+          "median_ms": 6.093894597142935,
+          "p95_ms": 15.756873600184914,
+          "n": 100
+        },
+        "union_size_typical": 1546
+      },
+      "memory_mb": {
+        "faiss_index_mb": 116.2734375,
+        "query_input_table_mb": 232.546875,
+        "trio_params_mb_fp32": 39.17289733886719,
+        "total_serving_mb_trio": 387.9932098388672
+      },
+      "end_to_end_batch1_ms": {
+        "trio_batch1_ms": 22.899541072547436,
+        "components": "encode + ANN probes + merge (batch-1 medians summed)"
+      }
+    },
+    "yelp": {
+      "params_per_tower": 3422980,
+      "params_trio": 10268940,
+      "query_encoding_ms": {
+        "single_batch1": {
+          "mean_ms": 1.4251085324212909,
+          "median_ms": 1.3389126397669315,
+          "p95_ms": 1.8177369143813846,
+          "n": 200
+        },
+        "trio_batch1": {
+          "mean_ms": 4.654628727585077,
+          "median_ms": 4.426960367709398,
+          "p95_ms": 5.70945250801742,
+          "n": 200
+        }
+      },
+      "ann": {
+        "trio_12probe_top500_batch1": {
+          "mean_ms": 25.420061773620546,
+          "median_ms": 27.540494687855244,
+          "p95_ms": 36.26291379332542,
+          "n": 200
+        },
+        "trio_batched_throughput": {
+          "requests_per_call": 200,
+          "call_ms": 8948.26193433255,
+          "per_request_ms": 44.74130967166275,
+          "qps": 22.35070916203773
+        },
+        "index": {
+          "type": "IndexFlatIP (exact IP)",
+          "n_items": 20033,
+          "dim": 3072,
+          "memory_mb": 234.76171875
+        }
+      },
+      "merge": {
+        "union_rescore_z_mean_top10": {
+          "mean_ms": 4.190254481509328,
+          "median_ms": 3.2814242877066135,
+          "p95_ms": 8.61068870872259,
+          "n": 100
+        },
+        "union_size_typical": 1168
+      },
+      "memory_mb": {
+        "faiss_index_mb": 234.76171875,
+        "query_input_table_mb": 469.5234375,
+        "trio_params_mb_fp32": 39.17289733886719,
+        "total_serving_mb_trio": 743.4580535888672
+      },
+      "end_to_end_batch1_ms": {
+        "trio_batch1_ms": 35.248879343271255,
+        "components": "encode + ANN probes + merge (batch-1 medians summed)"
+      }
+    }
+  },
+  "runtime_sec": 180.2
+}

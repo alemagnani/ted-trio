@@ -1,0 +1,444 @@
+{
+  "experiment": "CLOSE3_serving_bench",
+  "utc": "2026-08-07T00:13:22Z",
+  "env": {
+    "machine": "local workstation (disclosed)",
+    "cpu": "13th Gen Intel Core i5-1340P, 16 logical cores",
+    "ram_gb": 30,
+    "torch": "2.12.0+cu130",
+    "faiss": "1.13.2",
+    "torch_threads": 1,
+    "faiss_threads": 1,
+    "python": "3.12.4",
+    "loadavg_at_start": [
+      34.08740234375,
+      37.35302734375,
+      29.927734375
+    ],
+    "co_tenant_disclosure": "benchmark ran co-located with an active research job (i38_soft_router, ~10 of 16 cores; lane discipline forbids stopping it); latencies are therefore CONSERVATIVE upper bounds under load, not idle-machine numbers",
+    "note": "CPU-only; batch-1 numbers are single-request wall clock"
+  },
+  "params": {
+    "i24_towers": {
+      "42": {
+        "total_trainable": 3422980,
+        "by_module": {
+          "in_proj": 1573120,
+          "rec_emb": 5120,
+          "encoder": 1054208,
+          "pool": 1028,
+          "out_proj": 789504
+        },
+        "config": {
+          "d": 256,
+          "n_layers": 2,
+          "n_heads": 4,
+          "d_ff": 512,
+          "max_len": 20,
+          "dropout": 0.1,
+          "tau": 0.05,
+          "seed": 42,
+          "n_query_vectors": 4,
+          "item_dim": 3072,
+          "n_items": 12101,
+          "input_dim": 6144
+        }
+      },
+      "43": {
+        "total_trainable": 3422980,
+        "by_module": {
+          "in_proj": 1573120,
+          "rec_emb": 5120,
+          "encoder": 1054208,
+          "pool": 1028,
+          "out_proj": 789504
+        },
+        "config": {
+          "d": 256,
+          "n_layers": 2,
+          "n_heads": 4,
+          "d_ff": 512,
+          "max_len": 20,
+          "dropout": 0.1,
+          "tau": 0.05,
+          "seed": 43,
+          "n_query_vectors": 4,
+          "item_dim": 3072,
+          "n_items": 12101,
+          "input_dim": 6144
+        }
+      },
+      "44": {
+        "total_trainable": 3422980,
+        "by_module": {
+          "in_proj": 1573120,
+          "rec_emb": 5120,
+          "encoder": 1054208,
+          "pool": 1028,
+          "out_proj": 789504
+        },
+        "config": {
+          "d": 256,
+          "n_layers": 2,
+          "n_heads": 4,
+          "d_ff": 512,
+          "max_len": 20,
+          "dropout": 0.1,
+          "tau": 0.05,
+          "seed": 44,
+          "n_query_vectors": 4,
+          "item_dim": 3072,
+          "n_items": 12101,
+          "input_dim": 6144
+        }
+      }
+    },
+    "per_tower_trainable": 3422980,
+    "trio_trainable": 10268940,
+    "i32c_distilled_single": {
+      "total_trainable": 3422980,
+      "by_module": {
+        "in_proj": 1573120,
+        "rec_emb": 5120,
+        "encoder": 1054208,
+        "pool": 1028,
+        "out_proj": 789504
+      },
+      "config": {
+        "d": 256,
+        "n_layers": 2,
+        "n_heads": 4,
+        "d_ff": 512,
+        "max_len": 20,
+        "dropout": 0.1,
+        "tau": 0.05,
+        "seed": 43,
+        "n_query_vectors": 4,
+        "item_dim": 3072,
+        "n_items": 12101,
+        "input_dim": 6144
+      }
+    },
+    "free_arm": {
+      "trainable": 0,
+      "note": "training-free whitened content+collab blend; the ZCA whitening maps are fixed linear transforms computed in closed form from item-side statistics (no gradient training)",
+      "whitening_matrices": {
+        "content_zca": {
+          "shape": [
+            768,
+            768
+          ],
+          "plus_mean": 768,
+          "floats": 590592,
+          "source": "sentence-t5-xl 768-d content space"
+        },
+        "collab_zca": {
+          "shape": [
+            128,
+            128
+          ],
+          "plus_mean": 128,
+          "floats": 16512,
+          "source": "PPMI+SVD 128-d collab space"
+        }
+      }
+    }
+  },
+  "frozen_tables": {
+    "note": "frozen EXTERNAL tables excluded from trainable counts (never trained; the scoring table doubles as the ANN index)",
+    "item_scoring_table": {
+      "shape": [
+        12101,
+        3072
+      ],
+      "fp32_mb": 141.80859375
+    },
+    "query_input_table": {
+      "shape": [
+        12101,
+        6144
+      ],
+      "fp32_mb": 283.6171875
+    }
+  },
+  "query_encoding_ms": {
+    "single_batch1": {
+      "mean_ms": 8.601659014821053,
+      "median_ms": 6.584743037819862,
+      "p95_ms": 17.61716571636498,
+      "n": 200
+    },
+    "trio_batch1": {
+      "mean_ms": 20.23881108034402,
+      "median_ms": 16.982009168714285,
+      "p95_ms": 38.849453022703514,
+      "n": 200
+    },
+    "single_batch64": {
+      "mean_ms": 199.90425407886505,
+      "median_ms": 172.02500347048044,
+      "p95_ms": 320.0242201332003,
+      "n": 50,
+      "per_user_ms": 2.687890679226257
+    },
+    "trio_batch64": {
+      "mean_ms": 457.4208216741681,
+      "median_ms": 512.1405939571559,
+      "p95_ms": 697.3929522093385,
+      "n": 30,
+      "per_user_ms": 8.002196780580562
+    }
+  },
+  "ann": {
+    "trio_12probe_top500_batch1": {
+      "mean_ms": 184.5856463164091,
+      "median_ms": 165.54427286610007,
+      "p95_ms": 281.21169283986075,
+      "n": 200
+    },
+    "single_4probe_top500_batch1": {
+      "mean_ms": 75.60202893801033,
+      "median_ms": 72.45234306901693,
+      "p95_ms": 98.52121849544346,
+      "n": 200
+    },
+    "trio_batched_throughput": {
+      "requests_per_call": 200,
+      "call_ms": 9316.800757311285,
+      "per_request_ms": 46.58400378655642,
+      "qps": 21.466596228651945
+    },
+    "single_batched_throughput": {
+      "requests_per_call": 200,
+      "call_ms": 3323.529507499188,
+      "per_request_ms": 16.61764753749594,
+      "qps": 60.17698941704036
+    },
+    "index": {
+      "type": "IndexFlatIP (exact IP; 12k catalog needs no quantiser)",
+      "n_items": 12101,
+      "dim": 3072,
+      "memory_mb": 141.80859375
+    }
+  },
+  "merge": {
+    "union_rescore_z_mean_top10": {
+      "mean_ms": 16.27074483782053,
+      "median_ms": 15.259553212672472,
+      "p95_ms": 25.80644697882235,
+      "n": 100
+    },
+    "union_size_typical": 1578,
+    "exact_full_catalog_trio_top10": {
+      "mean_ms": 34.80468885973096,
+      "median_ms": 32.144321128726006,
+      "p95_ms": 59.661510307341814,
+      "n": 200
+    }
+  },
+  "memory_mb": {
+    "faiss_index_mb": 141.80859375,
+    "query_input_table_mb": 283.6171875,
+    "tower_params_mb_fp32": 13.057632446289062,
+    "trio_params_mb_fp32": 39.17289733886719,
+    "total_serving_mb_trio": 464.5986785888672,
+    "note": "input table is shared by all towers; index is shared; fp32 throughout"
+  },
+  "end_to_end_batch1_ms": {
+    "trio_batch1_ms": 197.78583524748683,
+    "single_batch1_ms": 84.12360384439428,
+    "components": "encode + ANN probes + merge (batch-1 medians summed; single-tower merge scaled 1/3 as a bound)"
+  },
+  "tiger_generative_comparison": {
+    "measured_decode_time": null,
+    "why": "no per-request decode wall-clock recorded in RESULTS.md or research/ledger.jsonl for J1 (beams dumped offline on a GPU box)",
+    "analytic_estimate_LABELLED": {
+      "model": {
+        "total_unique": 6823552,
+        "encoder": 2754368,
+        "decoder": 3934784,
+        "d_model": 128,
+        "d_ff": 1024,
+        "enc_layers": 6,
+        "dec_layers": 6,
+        "vocab": 1026,
+        "source": "outputs/artifacts/j1/tiger_ckpt_best.pt"
+      },
+      "assumptions": {
+        "history_tokens": 80,
+        "beam": 20,
+        "sid_len": 4,
+        "kv_cache": true
+      },
+      "encoder_flops": 440698880.0,
+      "decoder_flops": 629565440.0,
+      "total_flops": 1070264320.0,
+      "tower_encode_flops_per_user": 111149056.0,
+      "trio_encode_flops_per_user": 333447168.0,
+      "flops_ratio_tiger_over_trio_encode": 3.209696835691824,
+      "structural_note": "beyond FLOPs, TIGER decode is 4 SEQUENTIAL beam-search steps (latency floor of 4 dependent forward passes) and cannot emit unseen semantic IDs (J1: cold HR 0.0000); the two-tower path is one forward pass + one parallel ANN lookup"
+    }
+  },
+  "seed_spread_HR@5": {
+    "protocol_note": "pseudo-test = inner-world held-out (selection world); real = the single preregistered real-test look already spent \u2014 no new test looks taken here, numbers copied from artifacts",
+    "beauty": {
+      "pseudo_test_singles": {
+        "per_seed": {
+          "42": 0.0745,
+          "43": 0.0751,
+          "44": 0.0749
+        },
+        "mean": 0.0748,
+        "min": 0.0745,
+        "max": 0.0751,
+        "range": 0.0006,
+        "sd": 0.00031
+      },
+      "pseudo_test_trio": 0.0802,
+      "real_test_trio": 0.071,
+      "real_singles": "not recorded (look budget spent on trio only)"
+    },
+    "toys": {
+      "pseudo_test_singles": {
+        "per_seed": {
+          "42": 0.0757,
+          "43": 0.0764,
+          "44": 0.0788
+        },
+        "mean": 0.077,
+        "min": 0.0757,
+        "max": 0.0788,
+        "range": 0.0031,
+        "sd": 0.00163
+      },
+      "pseudo_test_trio": 0.0823,
+      "real_test_trio": 0.0804,
+      "real_singles": "not recorded (look budget spent on trio only)"
+    },
+    "sports": {
+      "pseudo_test_singles": {
+        "per_seed": {
+          "42": 0.0418,
+          "43": 0.0428,
+          "44": 0.0424
+        },
+        "mean": 0.0423,
+        "min": 0.0418,
+        "max": 0.0428,
+        "range": 0.001,
+        "sd": 0.0005
+      },
+      "pseudo_test_trio": 0.0439,
+      "real_test_singles": {
+        "per_seed": {
+          "42": 0.0381,
+          "43": 0.038,
+          "44": 0.0388
+        },
+        "mean": 0.0383,
+        "min": 0.038,
+        "max": 0.0388,
+        "range": 0.0008,
+        "sd": 0.00044
+      },
+      "real_test_trio": 0.0401
+    }
+  },
+  "runtime_sec": 276.9,
+  "secondary_run_16threads_contended": {
+    "note": "same script, default 16 torch / 16 faiss threads, run co-located with the same ~10-core i38 job; thread oversubscription inflates every number \u2014 kept for full disclosure, NOT headline",
+    "env": {
+      "torch_threads": 12,
+      "faiss_threads": 16
+    },
+    "query_encoding_ms": {
+      "single_batch1": {
+        "mean_ms": 235.03993078600615,
+        "median_ms": 229.92840921506286,
+        "p95_ms": 321.4392755180596,
+        "n": 200
+      },
+      "trio_batch1": {
+        "mean_ms": 749.068043641746,
+        "median_ms": 727.7308646589518,
+        "p95_ms": 1020.5524967517703,
+        "n": 200
+      },
+      "single_batch64": {
+        "mean_ms": 1971.3369870185852,
+        "median_ms": 2045.6278924830258,
+        "p95_ms": 2550.7704983465374,
+        "n": 50,
+        "per_user_ms": 31.962935820047278
+      },
+      "trio_batch64": {
+        "mean_ms": 5671.835323981941,
+        "median_ms": 5557.479120325297,
+        "p95_ms": 6695.48806073144,
+        "n": 30,
+        "per_user_ms": 86.83561125508277
+      }
+    },
+    "ann": {
+      "trio_12probe_top500_batch1": {
+        "mean_ms": 118.22746040299535,
+        "median_ms": 116.01003957912326,
+        "p95_ms": 154.1105853859335,
+        "n": 200
+      },
+      "single_4probe_top500_batch1": {
+        "mean_ms": 56.837779614143074,
+        "median_ms": 55.1077607087791,
+        "p95_ms": 83.82915910333395,
+        "n": 200
+      },
+      "trio_batched_throughput": {
+        "requests_per_call": 200,
+        "call_ms": 10252.693665213883,
+        "per_request_ms": 51.263468326069415,
+        "qps": 19.5070687304913
+      },
+      "single_batched_throughput": {
+        "requests_per_call": 200,
+        "call_ms": 3645.6494089215994,
+        "per_request_ms": 18.228247044607997,
+        "qps": 54.85991042105197
+      }
+    },
+    "merge": {
+      "union_rescore_z_mean_top10": {
+        "mean_ms": 56.59202943556011,
+        "median_ms": 56.329067796468735,
+        "p95_ms": 115.98675497807562,
+        "n": 100
+      },
+      "union_size_typical": 1578,
+      "exact_full_catalog_trio_top10": {
+        "mean_ms": 78.10754886828363,
+        "median_ms": 75.9718525223434,
+        "p95_ms": 114.01241826824844,
+        "n": 200
+      }
+    },
+    "end_to_end_batch1_ms": {
+      "trio_batch1_ms": 900.0699720345438,
+      "single_batch1_ms": 303.8125258559982,
+      "components": "encode + ANN probes + merge (batch-1 medians summed; single-tower merge scaled 1/3 as a bound)"
+    }
+  },
+  "headline": {
+    "per_tower_params": 3422980,
+    "trio_params": 10268940,
+    "encode_single_batch1_ms_median": 6.584743037819862,
+    "encode_trio_batch1_ms_median": 16.982009168714285,
+    "encode_trio_batch64_per_user_ms": 8.002196780580562,
+    "ann_trio_12probe_batch1_ms_median": 165.54427286610007,
+    "ann_single_4probe_batch1_ms_median": 72.45234306901693,
+    "merge_ms_median": 15.259553212672472,
+    "e2e_trio_batch1_ms": 197.78583524748683,
+    "e2e_single_batch1_ms": 84.12360384439428,
+    "total_serving_mb_trio": 464.5986785888672,
+    "tiger_flops_ratio_vs_trio_encode": 3.209696835691824,
+    "config": "SINGLE-THREAD (torch=1, faiss=1) under disclosed co-tenant load"
+  }
+}

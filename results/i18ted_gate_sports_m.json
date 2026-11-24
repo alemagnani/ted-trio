@@ -1,0 +1,78 @@
+{
+  "experiment": "I40_tricks_gate",
+  "dataset": "sports",
+  "smoke": false,
+  "no_real_test": true,
+  "protocol": "inner-world val(-3)/pseudo-test(-2), full-corpus max-IP, protocol.evaluate",
+  "inputs": {
+    "seq": "data/amazon_sports_backbone/Sports_inner.txt",
+    "n_items": 18357,
+    "item_emb": "data/amazon_sports_backbone/Sports_openai-3-large_i22inner_embeddings.pt",
+    "input_emb": "data/amazon_sports_backbone/Sports_openai-3-large_i24inner_input.pt",
+    "ckpts": [
+      "outputs/artifacts/i18ted_sports_m_s42_iv/tower.pt"
+    ]
+  },
+  "per_ckpt": {
+    "i18ted_sports_m_s42_iv/tower.pt": {
+      "path": "outputs/artifacts/i18ted_sports_m_s42_iv/tower.pt",
+      "kind": "tricks",
+      "config": {
+        "d": 512,
+        "n_layers": 4,
+        "n_heads": 8,
+        "d_ff": 1024,
+        "max_len": 20,
+        "dropout": 0.1,
+        "tau": 0.05,
+        "seed": 42,
+        "n_query_vectors": 4,
+        "item_dim": 3072,
+        "n_items": 18357,
+        "input_dim": 6144,
+        "longq_L": 0,
+        "freq_alpha": 0.0,
+        "freq_c": 5,
+        "input_dropout": 0.0,
+        "cumulative_ce": false,
+        "head_gate": "none",
+        "head_gate_tau": 1.0,
+        "multi_target_k": 0
+      },
+      "inner_val": {
+        "n": 35598,
+        "overall": {
+          "HR@5": 0.0418,
+          "HR@10": 0.0641,
+          "NDCG@5": 0.0273,
+          "NDCG@10": 0.0344
+        }
+      },
+      "pseudo_test": {
+        "n": 35598,
+        "overall": {
+          "HR@5": 0.0313,
+          "HR@10": 0.0492,
+          "NDCG@5": 0.0202,
+          "NDCG@10": 0.0259
+        },
+        "seen": {
+          "n": 35202,
+          "HR@5": 0.0316,
+          "HR@10": 0.0496,
+          "NDCG@5": 0.0204,
+          "NDCG@10": 0.0262
+        },
+        "cold": {
+          "n": 396,
+          "HR@5": 0.0076,
+          "HR@10": 0.0076,
+          "NDCG@5": 0.003,
+          "NDCG@10": 0.003
+        }
+      }
+    }
+  },
+  "ensemble": null,
+  "runtime_sec": 40.9
+}

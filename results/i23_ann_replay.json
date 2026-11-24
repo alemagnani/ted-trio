@@ -1,0 +1,30 @@
+{
+  "experiment": "I23_ANN_serving_replay",
+  "config": {
+    "depth_per_probe": 500,
+    "n_probes": 12,
+    "z_stat_sample": 1024,
+    "sample_rng_seed": 0
+  },
+  "exact_reference": {
+    "HR@5": 0.069,
+    "HR@10": 0.1054,
+    "NDCG@5": 0.0443,
+    "NDCG@10": 0.056
+  },
+  "served": {
+    "HR@5": 0.069,
+    "HR@10": 0.1054,
+    "NDCG@5": 0.0443,
+    "NDCG@10": 0.0561
+  },
+  "delta_vs_exact": {
+    "HR@5": 0.0,
+    "HR@10": 0.0,
+    "NDCG@5": 0.0,
+    "NDCG@10": 0.0001
+  },
+  "target_in_union_recall": 0.6319,
+  "mean_union_size": 1525.6,
+  "runtime_sec": 517.3
+}

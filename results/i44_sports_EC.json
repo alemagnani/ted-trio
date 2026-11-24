@@ -1,0 +1,59 @@
+{
+  "experiment": "I44_2x2_cell",
+  "cell": "sports_EC",
+  "ckpts": [
+    "outputs/artifacts/i35_sports_real_openai_k4_s42_iv/j5.pt",
+    "outputs/artifacts/i35_sports_real_openai_k4_s43_iv/j5.pt",
+    "outputs/artifacts/i35_sports_real_openai_k4_s44_iv/j5.pt"
+  ],
+  "item_emb": "data/amazon_sports_backbone/Sports_openai-3-large_i22real_embeddings.pt",
+  "input_emb": "data/amazon_sports_backbone/Sports_openai-3-large_i24real_input.pt",
+  "pool": 200,
+  "unmasked": {
+    "n": 35598,
+    "overall": {
+      "HR@5": 0.0401,
+      "HR@10": 0.0622,
+      "NDCG@5": 0.0259,
+      "NDCG@10": 0.033
+    },
+    "seen": {
+      "n": 35256,
+      "HR@5": 0.0404,
+      "HR@10": 0.0627,
+      "NDCG@5": 0.0261,
+      "NDCG@10": 0.0333
+    },
+    "cold": {
+      "n": 342,
+      "HR@5": 0.0088,
+      "HR@10": 0.0146,
+      "NDCG@5": 0.0044,
+      "NDCG@10": 0.0062
+    }
+  },
+  "masked": {
+    "n": 35598,
+    "overall": {
+      "HR@5": 0.0464,
+      "HR@10": 0.0674,
+      "NDCG@5": 0.0312,
+      "NDCG@10": 0.0379
+    },
+    "seen": {
+      "n": 35256,
+      "HR@5": 0.0468,
+      "HR@10": 0.0679,
+      "NDCG@5": 0.0314,
+      "NDCG@10": 0.0382
+    },
+    "cold": {
+      "n": 342,
+      "HR@5": 0.0088,
+      "HR@10": 0.0175,
+      "NDCG@5": 0.0046,
+      "NDCG@10": 0.0075
+    }
+  },
+  "runtime_sec": 30586.9
+}

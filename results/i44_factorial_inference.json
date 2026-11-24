@@ -1,0 +1,146 @@
+{
+  "experiment": "I44_factorial_inference",
+  "kind": "analysis_addendum (no new test look; all outcomes reported)",
+  "pool": 200,
+  "metric": "unmasked HR@5 per-user hit indicator",
+  "inference": {
+    "sign_flip_permutations": 20000,
+    "bootstrap_resamples": 10000,
+    "seed": 0,
+    "ci": "95% percentile"
+  },
+  "datasets": {
+    "beauty": {
+      "status": "aborted_missing_artifacts",
+      "cells": {},
+      "effects": null,
+      "missing": [
+        "outputs/artifacts/i44_beauty_pp_s42_iv/j5.pt",
+        "outputs/artifacts/i44_beauty_pp_s43_iv/j5.pt",
+        "outputs/artifacts/i44_beauty_pp_s44_iv/j5.pt",
+        "outputs/artifacts/i44_beauty_pc_s42_iv/j5.pt",
+        "outputs/artifacts/i44_beauty_pc_s43_iv/j5.pt",
+        "outputs/artifacts/i44_beauty_pc_s44_iv/j5.pt"
+      ]
+    },
+    "toys": {
+      "status": "aborted_missing_artifacts",
+      "cells": {},
+      "effects": null,
+      "missing": [
+        "outputs/artifacts/i44_toys_pp_s42_iv/j5.pt",
+        "outputs/artifacts/i44_toys_pp_s43_iv/j5.pt",
+        "outputs/artifacts/i44_toys_pp_s44_iv/j5.pt",
+        "outputs/artifacts/i44_toys_ep_s42_iv/j5.pt",
+        "outputs/artifacts/i44_toys_ep_s43_iv/j5.pt",
+        "outputs/artifacts/i44_toys_ep_s44_iv/j5.pt",
+        "outputs/artifacts/i44_toys_pc_s42_iv/j5.pt",
+        "outputs/artifacts/i44_toys_pc_s43_iv/j5.pt",
+        "outputs/artifacts/i44_toys_pc_s44_iv/j5.pt"
+      ]
+    },
+    "sports": {
+      "status": "ok",
+      "cells": {
+        "pp": {
+          "HR@5_per_user_mean": 0.034355862688915106,
+          "HR@5_recomputed_4dp": 0.0344,
+          "HR@5_booked": 0.0344,
+          "booked_file": "research/results/i44_sports_pp.json",
+          "repro_guard": "PASS"
+        },
+        "Ep": {
+          "HR@5_per_user_mean": 0.039917972919826954,
+          "HR@5_recomputed_4dp": 0.0399,
+          "HR@5_booked": 0.0399,
+          "booked_file": "research/results/i44_sports_Ep.json",
+          "repro_guard": "PASS"
+        },
+        "pC": {
+          "HR@5_per_user_mean": 0.03682791168043149,
+          "HR@5_recomputed_4dp": 0.0368,
+          "HR@5_booked": 0.0368,
+          "booked_file": "research/results/i44_sports_pC.json",
+          "repro_guard": "PASS"
+        },
+        "EC": {
+          "HR@5_per_user_mean": 0.04014270464632844,
+          "HR@5_recomputed_4dp": 0.0401,
+          "HR@5_booked": 0.0401,
+          "booked_file": "research/results/i44_sports_EC.json",
+          "repro_guard": "PASS"
+        }
+      },
+      "effects": {
+        "E_main": {
+          "estimate": 0.0044384515984044045,
+          "ci95": [
+            0.0031458930694498125,
+            0.005716613493859768
+          ],
+          "p_signflip": 4.999750012499375e-05,
+          "n_perm": 20000,
+          "n_boot": 10000,
+          "stat_seed": 0
+        },
+        "C_main": {
+          "estimate": 0.0013483903590089331,
+          "ci95": [
+            0.00044946346315555274,
+            0.0022192257456481457
+          ],
+          "p_signflip": 0.003249837508124594,
+          "n_perm": 20000,
+          "n_boot": 10000,
+          "stat_seed": 0
+        },
+        "interaction": {
+          "estimate": -0.0022473172650148885,
+          "ci95": [
+            -0.003988988231867552,
+            -0.0005056463996879756
+          ],
+          "p_signflip": 0.010999450027498626,
+          "n_perm": 20000,
+          "n_boot": 10000,
+          "stat_seed": 0
+        },
+        "Ep_minus_pp": {
+          "estimate": 0.005562110230911849,
+          "ci95": [
+            0.004045171197503805,
+            0.007107140962034464
+          ],
+          "p_signflip": 4.999750012499375e-05,
+          "n_perm": 20000,
+          "n_boot": 10000,
+          "stat_seed": 0
+        },
+        "pC_minus_pp": {
+          "estimate": 0.0024720489915163774,
+          "ci95": [
+            0.0012360245455056429,
+            0.0037361648865044117
+          ],
+          "p_signflip": 9.99950002499875e-05,
+          "n_perm": 20000,
+          "n_boot": 10000,
+          "stat_seed": 0
+        },
+        "EC_minus_pp": {
+          "estimate": 0.005786841957413338,
+          "ci95": [
+            0.004213720094412565,
+            0.007359963841736317
+          ],
+          "p_signflip": 4.999750012499375e-05,
+          "n_perm": 20000,
+          "n_boot": 10000,
+          "stat_seed": 0
+        }
+      },
+      "n": 35598
+    }
+  },
+  "runtime_sec": 15933.4
+}

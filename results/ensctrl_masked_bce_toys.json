@@ -1,0 +1,95 @@
+{
+  "experiment": "E-ENSCTRL_masked_descriptive_rescore",
+  "prereg": "PREREG-E-ENSCTRL (unmasked primary + masked descriptive)",
+  "dataset": "toys",
+  "loss": "bce",
+  "no_selection": true,
+  "configs_scored": 1,
+  "booked_source": "research/results/ensctrl_sasrec_toys.json",
+  "frozen_w": [
+    0.4,
+    0.2,
+    0.3999999999999999
+  ],
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "masking": "i41/i43 convention: protocol.evaluate exclude_history=True (train+val items within the max_len=20 evaluator window)",
+  "unmasked_reproduction_guard": {
+    "pass": true,
+    "checks": {
+      "HR@5": {
+        "recomputed": 0.0429,
+        "booked": 0.0429
+      },
+      "NDCG@5": {
+        "recomputed": 0.022,
+        "booked": 0.022
+      },
+      "HR@10": {
+        "recomputed": 0.0711,
+        "booked": 0.0711
+      },
+      "NDCG@10": {
+        "recomputed": 0.0311,
+        "booked": 0.0311
+      }
+    }
+  },
+  "repeat_target_share": 0.0,
+  "unmasked": {
+    "n": 19412,
+    "overall": {
+      "HR@5": 0.0429,
+      "HR@10": 0.0711,
+      "NDCG@5": 0.022,
+      "NDCG@10": 0.0311
+    },
+    "seen": {
+      "n": 19116,
+      "HR@5": 0.0436,
+      "HR@10": 0.0722,
+      "NDCG@5": 0.0224,
+      "NDCG@10": 0.0316
+    },
+    "cold": {
+      "n": 296,
+      "HR@5": 0.0,
+      "HR@10": 0.0,
+      "NDCG@5": 0.0,
+      "NDCG@10": 0.0
+    }
+  },
+  "masked": {
+    "n": 19412,
+    "overall": {
+      "HR@5": 0.0541,
+      "HR@10": 0.0795,
+      "NDCG@5": 0.037,
+      "NDCG@10": 0.0451
+    },
+    "seen": {
+      "n": 19116,
+      "HR@5": 0.055,
+      "HR@10": 0.0808,
+      "NDCG@5": 0.0375,
+      "NDCG@10": 0.0458
+    },
+    "cold": {
+      "n": 296,
+      "HR@5": 0.0,
+      "HR@10": 0.0,
+      "NDCG@5": 0.0,
+      "NDCG@10": 0.0
+    }
+  },
+  "delta_masked_minus_unmasked": {
+    "HR@5": 0.0112,
+    "HR@10": 0.0084,
+    "NDCG@5": 0.015,
+    "NDCG@10": 0.014
+  },
+  "runtime_sec": 1.8
+}

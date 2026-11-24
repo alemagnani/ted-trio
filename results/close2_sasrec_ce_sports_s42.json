@@ -1,0 +1,52 @@
+{
+  "experiment": "CLOSE2_sasrec_ce_descriptive",
+  "dataset": "sports",
+  "seed": 42,
+  "config": {
+    "dataset": "sports",
+    "seed": 42,
+    "device": "cuda:0",
+    "d": 50,
+    "blocks": 2,
+    "heads": 1,
+    "dropout": 0.5,
+    "maxlen": 20,
+    "lr": 0.001,
+    "l2_emb": 0.0,
+    "batch": 128,
+    "epochs": 200,
+    "eval_every": 10,
+    "patience": 40,
+    "loss": "ce"
+  },
+  "selection": {
+    "criterion": "protocol val HR@10",
+    "best_val_hr10": 0.0608,
+    "best_epoch": 50
+  },
+  "test": {
+    "n": 35598,
+    "overall": {
+      "HR@5": 0.0288,
+      "HR@10": 0.046,
+      "NDCG@5": 0.0171,
+      "NDCG@10": 0.0226
+    },
+    "seen": {
+      "n": 35256,
+      "HR@5": 0.0291,
+      "HR@10": 0.0464,
+      "NDCG@5": 0.0173,
+      "NDCG@10": 0.0229
+    },
+    "cold": {
+      "n": 342,
+      "HR@5": 0.0,
+      "HR@10": 0.0,
+      "NDCG@5": 0.0,
+      "NDCG@10": 0.0
+    }
+  },
+  "checkpoint": "outputs/artifacts/close2_sasrec_ce_sports_s42/sasrec_best.pt",
+  "runtime_sec": 280.5
+}

@@ -1,0 +1,52 @@
+{
+  "experiment": "CLOSE2_sasrec_ce_descriptive",
+  "dataset": "toys",
+  "seed": 42,
+  "config": {
+    "dataset": "toys",
+    "seed": 42,
+    "device": "cuda:0",
+    "d": 50,
+    "blocks": 2,
+    "heads": 1,
+    "dropout": 0.5,
+    "maxlen": 20,
+    "lr": 0.001,
+    "l2_emb": 0.0,
+    "batch": 128,
+    "epochs": 200,
+    "eval_every": 10,
+    "patience": 40,
+    "loss": "ce"
+  },
+  "selection": {
+    "criterion": "protocol val HR@10",
+    "best_val_hr10": 0.1034,
+    "best_epoch": 60
+  },
+  "test": {
+    "n": 19412,
+    "overall": {
+      "HR@5": 0.0587,
+      "HR@10": 0.0865,
+      "NDCG@5": 0.0332,
+      "NDCG@10": 0.0422
+    },
+    "seen": {
+      "n": 19116,
+      "HR@5": 0.0596,
+      "HR@10": 0.0878,
+      "NDCG@5": 0.0337,
+      "NDCG@10": 0.0429
+    },
+    "cold": {
+      "n": 296,
+      "HR@5": 0.0,
+      "HR@10": 0.0,
+      "NDCG@5": 0.0,
+      "NDCG@10": 0.0
+    }
+  },
+  "checkpoint": "outputs/artifacts/close2_sasrec_ce_toys_s42/sasrec_best.pt",
+  "runtime_sec": 990.0
+}

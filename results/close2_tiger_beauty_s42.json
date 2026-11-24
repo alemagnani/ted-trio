@@ -1,0 +1,30 @@
+{
+  "experiment": "CLOSE2_tiger_score",
+  "dataset": "beauty",
+  "seed": 42,
+  "beams": "outputs/artifacts/j1/dumps/beauty_tiger_beams_test.jsonl",
+  "n": 22363,
+  "n_beam_records": 447260,
+  "invalid_beam_frac": 0.0011,
+  "overall": {
+    "n": 22363,
+    "HR@5": 0.0453,
+    "HR@10": 0.0709,
+    "NDCG@5": 0.0301,
+    "NDCG@10": 0.0383
+  },
+  "seen": {
+    "n": 22201,
+    "HR@5": 0.0456,
+    "HR@10": 0.0714,
+    "NDCG@5": 0.0303,
+    "NDCG@10": 0.0386
+  },
+  "cold": {
+    "n": 162,
+    "HR@5": 0.0,
+    "HR@10": 0.0,
+    "NDCG@5": 0.0,
+    "NDCG@10": 0.0
+  }
+}

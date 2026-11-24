@@ -1,0 +1,31 @@
+{
+  "experiment": "CLOSE2_tiger_score",
+  "dataset": "instruments",
+  "seed": 44,
+  "beams": "outputs/artifacts/close2/dumps/expand/instruments_tiger_beams_test_s44.jsonl",
+  "n": 24772,
+  "n_beam_records": 495440,
+  "invalid_beam_frac": 0.0001,
+  "overall": {
+    "n": 24772,
+    "HR@5": 0.0901,
+    "HR@10": 0.1133,
+    "NDCG@5": 0.0749,
+    "NDCG@10": 0.0824
+  },
+  "seen": {
+    "n": 24727,
+    "HR@5": 0.0902,
+    "HR@10": 0.1135,
+    "NDCG@5": 0.075,
+    "NDCG@10": 0.0825
+  },
+  "cold": {
+    "n": 45,
+    "HR@5": 0.0,
+    "HR@10": 0.0,
+    "NDCG@5": 0.0,
+    "NDCG@10": 0.0
+  },
+  "seed_note": "seed field corrected post-hoc; scorer --seed defaulted to 42; checkpoint provenance verified in box logs (close2_tiger_seed_44/results/ckpt_best.pt)"
+}

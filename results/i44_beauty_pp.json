@@ -1,0 +1,59 @@
+{
+  "experiment": "I44_2x2_cell",
+  "cell": "beauty_pp",
+  "ckpts": [
+    "outputs/artifacts/i44_beauty_pp_s42_iv/j5.pt",
+    "outputs/artifacts/i44_beauty_pp_s43_iv/j5.pt",
+    "outputs/artifacts/i44_beauty_pp_s44_iv/j5.pt"
+  ],
+  "item_emb": "data/amazon_beauty_backbone/Beauty_openai-3-large_embeddings.pt",
+  "input_emb": null,
+  "pool": 200,
+  "unmasked": {
+    "n": 22363,
+    "overall": {
+      "HR@5": 0.0656,
+      "HR@10": 0.1005,
+      "NDCG@5": 0.0425,
+      "NDCG@10": 0.0537
+    },
+    "seen": {
+      "n": 22201,
+      "HR@5": 0.0661,
+      "HR@10": 0.101,
+      "NDCG@5": 0.0428,
+      "NDCG@10": 0.054
+    },
+    "cold": {
+      "n": 162,
+      "HR@5": 0.0,
+      "HR@10": 0.037,
+      "NDCG@5": 0.0,
+      "NDCG@10": 0.0121
+    }
+  },
+  "masked": {
+    "n": 22363,
+    "overall": {
+      "HR@5": 0.0754,
+      "HR@10": 0.1097,
+      "NDCG@5": 0.0526,
+      "NDCG@10": 0.0636
+    },
+    "seen": {
+      "n": 22201,
+      "HR@5": 0.0757,
+      "HR@10": 0.1103,
+      "NDCG@5": 0.0528,
+      "NDCG@10": 0.0639
+    },
+    "cold": {
+      "n": 162,
+      "HR@5": 0.037,
+      "HR@10": 0.037,
+      "NDCG@5": 0.0271,
+      "NDCG@10": 0.0271
+    }
+  },
+  "runtime_sec": 679.4
+}

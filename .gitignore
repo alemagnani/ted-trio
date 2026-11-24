@@ -1,0 +1,25 @@
+# data, embeddings, checkpoints and run outputs are never committed
+data/
+outputs/
+third_party/
+*.pt
+*.pkl
+*.ckpt
+
+# one-look markers written by the real-test look scripts
+results/.*_taken
+
+# python / tooling
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+.DS_Store

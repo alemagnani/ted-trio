@@ -1,0 +1,187 @@
+{
+  "experiment": "close2_tiger_latency",
+  "date_utc": "2026-08-10T00:17:55Z",
+  "dataset": "Amazon Beauty (LIGER preprocessing, sentence-t5-xl SIDs, seed 42)",
+  "checkpoint": {
+    "path_on_box": "<box>/tiger_bench_data/j1_tiger_seed_42/results/ckpt_best.pt",
+    "origin": "j1 box results/tiger/Amazon_Beauty/j1_tiger_seed_42/results/ckpt_best.pt (synced local: outputs/artifacts/j1/tiger_ckpt_best.pt) \u2014 the exact checkpoint behind the reported Beauty TIGER HR@5 0.0453",
+    "n_params": 6823552
+  },
+  "decode_config": {
+    "num_beams": 20,
+    "num_return_sequences": 20,
+    "max_new_tokens_sid_len": 4,
+    "n_positions": 102,
+    "max_items_per_seq": 20,
+    "batch_size": 1,
+    "constrained": "unconstrained beam-20 with post-hoc SID->item validity mapping, identical to the reported eval (j1_dump.py); invalid_beam_frac ~0.001 in the reported run",
+    "gpu_precision": "fp16 autocast (same as eval)",
+    "cpu_precision": "fp32, torch threads=1"
+  },
+  "environment": {
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "torch": "2.5.1+cu124",
+    "transformers": "4.39.3",
+    "python": "3.11.10",
+    "cpu_count": 128,
+    "hardware": "cloud GPU instance <id>, NVIDIA GeForce RTX 4090, 128 vCPU"
+  },
+  "co_tenancy": {
+    "note": "GPU shared with a running CLOSE-2 Sports TIGER training (run.py dataset=amazon Sports_and_Outdoors) plus other CPU jobs; nothing was stopped. Latencies are therefore upper bounds vs. a dedicated GPU.",
+    "gpu_util_before": {
+      "util_pct": 0,
+      "mem_used_mib": 6196
+    },
+    "python_processes": [
+      "70554  2-21:06:19 python run.py dataset=amazon dataset.name=Sports_and_Outdoors dataset.content_model=sentence-t5-xl seed=42 device_id=0 method=base test_method=tiger experiment_id=close2_tiger logging.mode=disabled",
+      "95842  1-10:09:57 bash -c python research/experiments/i43_masked_real.py --dataset beauty > i43_masked_beauty.log 2>&1 && touch <box-marker>/I43_BEAUTY_DONE || touch <box-marker>/I43_FAIL; python research/experiments/i43_masked_real.py --dataset sports > i43_masked_sports.log 2>&1 && touch <box-marker>/I43_SPORTS_DONE || touch <box-marker>/I43_FAIL",
+      "101183    23:17:40 python research/experiments/i43_masked_real.py --dataset sports",
+      "103777    18:15:27 python research/experiments/i40_gate.py --dataset toys --seq data/amazon_toys_backbone/Toys_inner.txt --n-items 11924 --item-emb data/amazon_toys_backbone/Toys_openai-3-large_i22inner_embeddings.pt --input-emb data/amazon_toys_backbone/Toys_openai-3-large_i24inner_input.pt --ckpt outputs/artifacts/i40_toys_longq_ted_s42/tower.pt outputs/artifacts/i40_toys_longq_ted_s43/tower.pt outputs/artifacts/i40_toys_longq_ted_s44/tower.pt --out research/results/i40_gate_toys_lqted_trio.json",
+      "104032    18:12:59 python research/experiments/i41_trans_fusion.py --dataset toys --seq data/amazon_toys_backbone/Toys_inner.txt --n-items 11924 --item-emb data/amazon_toys_backbone/Toys_openai-3-large_i22inner_embeddings.pt --input-emb data/amazon_toys_backbone/Toys_openai-3-large_i24inner_input.pt --ckpt outputs/artifacts/i30_toys_inner_openai_k4_s42_iv/j5.pt outputs/artifacts/i30_toys_inner_openai_k4_s43_iv/j5.pt outputs/artifacts/i30_toys_inner_openai_k4_s44_iv/j5.pt --out research/results/i41_trans_fusion_toys.json",
+      "108572    07:44:08 python research/experiments/i41_diag_buckets.py --dataset beauty --seq data/amazon_beauty_backbone/Beauty_inner.txt --n-items 12101 --item-emb data/amazon_beauty_backbone/Beauty_openai-3-large_i22inner_embeddings.pt --input-emb data/amazon_beauty_backbone/Beauty_openai-3-large_i24inner_input.pt --ckpt outputs/artifacts/i24_inner_openai_k4_s42_iv/j5.pt outputs/artifacts/i24_inner_openai_k4_s43_iv/j5.pt outputs/artifacts/i24_inner_openai_k4_s44_iv/j5.pt"
+    ]
+  },
+  "gpu_batch1": {
+    "n_queries": 500,
+    "warmup_queries": 10,
+    "mean_ms": 739.0164461871609,
+    "median_ms": 703.8792404346168,
+    "p90_ms": 900.415354873985,
+    "p99_ms": 1105.54871102795,
+    "min_ms": 403.41500798240304,
+    "max_ms": 1294.749152380973,
+    "HR@5_timed_subset": 0.014,
+    "HR@10_timed_subset": 0.024,
+    "gpu_util_samples_during": [
+      {
+        "util_pct": 3,
+        "mem_used_mib": 6769
+      },
+      {
+        "util_pct": 3,
+        "mem_used_mib": 6769
+      },
+      {
+        "util_pct": 8,
+        "mem_used_mib": 6769
+      },
+      {
+        "util_pct": 19,
+        "mem_used_mib": 6769
+      },
+      {
+        "util_pct": 3,
+        "mem_used_mib": 6769
+      }
+    ]
+  },
+  "cpu_batch1_threads1": {
+    "n_queries": 100,
+    "warmup_queries": 10,
+    "mean_ms": 1699.45280557964,
+    "median_ms": 1605.8600780088454,
+    "p90_ms": 1910.1902320981026,
+    "p99_ms": 2407.778384629637,
+    "min_ms": 1397.807384841144,
+    "max_ms": 3491.432731039822,
+    "HR@5_timed_subset": 0.01,
+    "HR@10_timed_subset": 0.04,
+    "gpu_util_samples_during": null
+  },
+  "sanity_decodes": [
+    {
+      "query_idx": 0,
+      "target_item": 5,
+      "top5_items": [
+        1896,
+        301,
+        2485,
+        862,
+        444
+      ],
+      "top5_valid": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "query_idx": 1,
+      "target_item": 11,
+      "top5_items": [
+        790,
+        103,
+        534,
+        4313,
+        2844
+      ],
+      "top5_valid": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "query_idx": 2,
+      "target_item": 19,
+      "top5_items": [
+        24,
+        39,
+        44,
+        1872,
+        5687
+      ],
+      "top5_valid": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "query_idx": 3,
+      "target_item": 24,
+      "top5_items": [
+        24,
+        39,
+        13,
+        103,
+        1766
+      ],
+      "top5_valid": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "query_idx": 4,
+      "target_item": 32,
+      "top5_items": [
+        13,
+        24,
+        477,
+        39,
+        30
+      ],
+      "top5_valid": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    }
+  ],
+  "reference": {
+    "reported_beauty_HR@5_full_test": 0.0453,
+    "reported_seen_HR@5": 0.0456
+  }
+}

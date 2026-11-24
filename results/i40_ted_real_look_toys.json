@@ -1,0 +1,231 @@
+{
+  "experiment": "I40_tricks_gate",
+  "dataset": "toys",
+  "smoke": false,
+  "no_real_test": true,
+  "protocol": "inner-world val(-3)/pseudo-test(-2), full-corpus max-IP, protocol.evaluate",
+  "inputs": {
+    "seq": "data/amazon_toys_backbone/Toys_and_Games.txt",
+    "n_items": 11924,
+    "item_emb": "data/amazon_toys_backbone/Toys_openai-3-large_i22real_embeddings.pt",
+    "input_emb": "data/amazon_toys_backbone/Toys_openai-3-large_i24real_input.pt",
+    "ckpts": [
+      "outputs/artifacts/i40_toys_ted_REAL_s42/tower.pt",
+      "outputs/artifacts/i40_toys_ted_REAL_s43/tower.pt",
+      "outputs/artifacts/i40_toys_ted_REAL_s44/tower.pt"
+    ]
+  },
+  "per_ckpt": {
+    "i40_toys_ted_REAL_s42/tower.pt": {
+      "path": "outputs/artifacts/i40_toys_ted_REAL_s42/tower.pt",
+      "kind": "tricks",
+      "config": {
+        "d": 256,
+        "n_layers": 2,
+        "n_heads": 4,
+        "d_ff": 512,
+        "max_len": 20,
+        "dropout": 0.1,
+        "tau": 0.05,
+        "seed": 42,
+        "n_query_vectors": 4,
+        "item_dim": 3072,
+        "n_items": 11924,
+        "input_dim": 6144,
+        "longq_L": 0,
+        "freq_alpha": 0.0,
+        "freq_c": 5,
+        "input_dropout": 0.0,
+        "cumulative_ce": false,
+        "head_gate": "none",
+        "head_gate_tau": 1.0,
+        "multi_target_k": 0
+      },
+      "inner_val": {
+        "n": 19412,
+        "overall": {
+          "HR@5": 0.2691,
+          "HR@10": 0.3497,
+          "NDCG@5": 0.1966,
+          "NDCG@10": 0.2227
+        }
+      },
+      "pseudo_test": {
+        "n": 19412,
+        "overall": {
+          "HR@5": 0.0783,
+          "HR@10": 0.1149,
+          "NDCG@5": 0.0526,
+          "NDCG@10": 0.0643
+        },
+        "seen": {
+          "n": 19116,
+          "HR@5": 0.0791,
+          "HR@10": 0.1156,
+          "NDCG@5": 0.0531,
+          "NDCG@10": 0.0649
+        },
+        "cold": {
+          "n": 296,
+          "HR@5": 0.027,
+          "HR@10": 0.0743,
+          "NDCG@5": 0.0149,
+          "NDCG@10": 0.0306
+        }
+      }
+    },
+    "i40_toys_ted_REAL_s43/tower.pt": {
+      "path": "outputs/artifacts/i40_toys_ted_REAL_s43/tower.pt",
+      "kind": "tricks",
+      "config": {
+        "d": 256,
+        "n_layers": 2,
+        "n_heads": 4,
+        "d_ff": 512,
+        "max_len": 20,
+        "dropout": 0.1,
+        "tau": 0.05,
+        "seed": 43,
+        "n_query_vectors": 4,
+        "item_dim": 3072,
+        "n_items": 11924,
+        "input_dim": 6144,
+        "longq_L": 0,
+        "freq_alpha": 0.0,
+        "freq_c": 5,
+        "input_dropout": 0.0,
+        "cumulative_ce": false,
+        "head_gate": "none",
+        "head_gate_tau": 1.0,
+        "multi_target_k": 0
+      },
+      "inner_val": {
+        "n": 19412,
+        "overall": {
+          "HR@5": 0.2706,
+          "HR@10": 0.3528,
+          "NDCG@5": 0.1962,
+          "NDCG@10": 0.2228
+        }
+      },
+      "pseudo_test": {
+        "n": 19412,
+        "overall": {
+          "HR@5": 0.0798,
+          "HR@10": 0.1159,
+          "NDCG@5": 0.0537,
+          "NDCG@10": 0.0653
+        },
+        "seen": {
+          "n": 19116,
+          "HR@5": 0.0806,
+          "HR@10": 0.1164,
+          "NDCG@5": 0.0543,
+          "NDCG@10": 0.0658
+        },
+        "cold": {
+          "n": 296,
+          "HR@5": 0.027,
+          "HR@10": 0.0845,
+          "NDCG@5": 0.0163,
+          "NDCG@10": 0.0354
+        }
+      }
+    },
+    "i40_toys_ted_REAL_s44/tower.pt": {
+      "path": "outputs/artifacts/i40_toys_ted_REAL_s44/tower.pt",
+      "kind": "tricks",
+      "config": {
+        "d": 256,
+        "n_layers": 2,
+        "n_heads": 4,
+        "d_ff": 512,
+        "max_len": 20,
+        "dropout": 0.1,
+        "tau": 0.05,
+        "seed": 44,
+        "n_query_vectors": 4,
+        "item_dim": 3072,
+        "n_items": 11924,
+        "input_dim": 6144,
+        "longq_L": 0,
+        "freq_alpha": 0.0,
+        "freq_c": 5,
+        "input_dropout": 0.0,
+        "cumulative_ce": false,
+        "head_gate": "none",
+        "head_gate_tau": 1.0,
+        "multi_target_k": 0
+      },
+      "inner_val": {
+        "n": 19412,
+        "overall": {
+          "HR@5": 0.2723,
+          "HR@10": 0.3623,
+          "NDCG@5": 0.1981,
+          "NDCG@10": 0.2271
+        }
+      },
+      "pseudo_test": {
+        "n": 19412,
+        "overall": {
+          "HR@5": 0.08,
+          "HR@10": 0.1167,
+          "NDCG@5": 0.0531,
+          "NDCG@10": 0.0649
+        },
+        "seen": {
+          "n": 19116,
+          "HR@5": 0.0807,
+          "HR@10": 0.117,
+          "NDCG@5": 0.0537,
+          "NDCG@10": 0.0653
+        },
+        "cold": {
+          "n": 296,
+          "HR@5": 0.0338,
+          "HR@10": 0.0946,
+          "NDCG@5": 0.0187,
+          "NDCG@10": 0.0388
+        }
+      }
+    }
+  },
+  "ensemble": {
+    "n_ckpts": 3,
+    "method": "mean_per_query_zscore",
+    "inner_val": {
+      "n": 19412,
+      "overall": {
+        "HR@5": 0.2967,
+        "HR@10": 0.3866,
+        "NDCG@5": 0.2153,
+        "NDCG@10": 0.2444
+      }
+    },
+    "pseudo_test": {
+      "n": 19412,
+      "overall": {
+        "HR@5": 0.0838,
+        "HR@10": 0.1232,
+        "NDCG@5": 0.0557,
+        "NDCG@10": 0.0685
+      },
+      "seen": {
+        "n": 19116,
+        "HR@5": 0.0845,
+        "HR@10": 0.1238,
+        "NDCG@5": 0.0563,
+        "NDCG@10": 0.069
+      },
+      "cold": {
+        "n": 296,
+        "HR@5": 0.0372,
+        "HR@10": 0.0811,
+        "NDCG@5": 0.0195,
+        "NDCG@10": 0.0344
+      }
+    }
+  },
+  "runtime_sec": 58.0
+}

@@ -1,0 +1,59 @@
+{
+  "experiment": "I44_2x2_cell",
+  "cell": "beauty_EC",
+  "ckpts": [
+    "outputs/artifacts/i24_real_openai_k4_s42_iv/j5.pt",
+    "outputs/artifacts/i24_real_openai_k4_s43_iv/j5.pt",
+    "outputs/artifacts/i24_real_openai_k4_s44_iv/j5.pt"
+  ],
+  "item_emb": "data/amazon_beauty_backbone/Beauty_openai-3-large_i22real_embeddings.pt",
+  "input_emb": "data/amazon_beauty_backbone/Beauty_openai-3-large_i24real_input.pt",
+  "pool": 200,
+  "unmasked": {
+    "n": 22363,
+    "overall": {
+      "HR@5": 0.071,
+      "HR@10": 0.1064,
+      "NDCG@5": 0.0459,
+      "NDCG@10": 0.0572
+    },
+    "seen": {
+      "n": 22201,
+      "HR@5": 0.0715,
+      "HR@10": 0.1068,
+      "NDCG@5": 0.0462,
+      "NDCG@10": 0.0575
+    },
+    "cold": {
+      "n": 162,
+      "HR@5": 0.0062,
+      "HR@10": 0.0617,
+      "NDCG@5": 0.0027,
+      "NDCG@10": 0.0197
+    }
+  },
+  "masked": {
+    "n": 22363,
+    "overall": {
+      "HR@5": 0.0824,
+      "HR@10": 0.1178,
+      "NDCG@5": 0.0581,
+      "NDCG@10": 0.0695
+    },
+    "seen": {
+      "n": 22201,
+      "HR@5": 0.0827,
+      "HR@10": 0.1182,
+      "NDCG@5": 0.0583,
+      "NDCG@10": 0.0698
+    },
+    "cold": {
+      "n": 162,
+      "HR@5": 0.0494,
+      "HR@10": 0.0679,
+      "NDCG@5": 0.0235,
+      "NDCG@10": 0.0296
+    }
+  },
+  "runtime_sec": 701.0
+}

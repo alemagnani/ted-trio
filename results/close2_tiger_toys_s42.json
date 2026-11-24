@@ -1,0 +1,30 @@
+{
+  "experiment": "CLOSE2_tiger_score",
+  "dataset": "toys",
+  "seed": 42,
+  "beams": "outputs/artifacts/close2/dumps/toys_tiger_beams_test.jsonl",
+  "n": 19412,
+  "n_beam_records": 388240,
+  "invalid_beam_frac": 0.0017,
+  "overall": {
+    "n": 19412,
+    "HR@5": 0.0409,
+    "HR@10": 0.0636,
+    "NDCG@5": 0.0258,
+    "NDCG@10": 0.0331
+  },
+  "seen": {
+    "n": 19116,
+    "HR@5": 0.0415,
+    "HR@10": 0.0646,
+    "NDCG@5": 0.0262,
+    "NDCG@10": 0.0336
+  },
+  "cold": {
+    "n": 296,
+    "HR@5": 0.0,
+    "HR@10": 0.0,
+    "NDCG@5": 0.0,
+    "NDCG@10": 0.0
+  }
+}

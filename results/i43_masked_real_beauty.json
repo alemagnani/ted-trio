@@ -1,0 +1,93 @@
+{
+  "experiment": "I43_masked_real",
+  "dataset": "beauty",
+  "smoke": false,
+  "no_selection": true,
+  "configs_scored": 1,
+  "note": "protocol-alignment rescore of the frozen preregistered config; masking convention = MQSA-TED/BSARec test-phase (train+val excluded); no selection performed",
+  "inputs": {
+    "seq": "data/amazon_beauty_backbone/Beauty.txt",
+    "n_items": 12101,
+    "item_emb": "data/amazon_beauty_backbone/Beauty_openai-3-large_i22real_embeddings.pt",
+    "input_emb": "data/amazon_beauty_backbone/Beauty_openai-3-large_i24real_input.pt",
+    "ckpts": [
+      "outputs/artifacts/i24_real_openai_k4_s42_iv/j5.pt",
+      "outputs/artifacts/i24_real_openai_k4_s43_iv/j5.pt",
+      "outputs/artifacts/i24_real_openai_k4_s44_iv/j5.pt"
+    ]
+  },
+  "published": {
+    "HR@5": 0.071,
+    "HR@10": 0.1064,
+    "NDCG@5": 0.0459,
+    "NDCG@10": 0.0572
+  },
+  "published_source": "research/results/i24_test_look.json (w=1.0)",
+  "unmasked_reproduction": {
+    "published_HR@5": 0.071,
+    "computed_HR@5": 0.071,
+    "abs_diff": 0.0,
+    "tol": 0.001,
+    "pass": true
+  },
+  "repeat_target_share": 0.0,
+  "unmasked": {
+    "n": 22363,
+    "overall": {
+      "HR@5": 0.071,
+      "HR@10": 0.1064,
+      "NDCG@5": 0.0459,
+      "NDCG@10": 0.0572
+    },
+    "seen": {
+      "n": 22201,
+      "HR@5": 0.0715,
+      "HR@10": 0.1068,
+      "NDCG@5": 0.0462,
+      "NDCG@10": 0.0575
+    },
+    "cold": {
+      "n": 162,
+      "HR@5": 0.0062,
+      "HR@10": 0.0617,
+      "NDCG@5": 0.0027,
+      "NDCG@10": 0.0197
+    }
+  },
+  "masked": {
+    "n": 22363,
+    "overall": {
+      "HR@5": 0.0824,
+      "HR@10": 0.1178,
+      "NDCG@5": 0.0581,
+      "NDCG@10": 0.0695
+    },
+    "seen": {
+      "n": 22201,
+      "HR@5": 0.0827,
+      "HR@10": 0.1182,
+      "NDCG@5": 0.0583,
+      "NDCG@10": 0.0698
+    },
+    "cold": {
+      "n": 162,
+      "HR@5": 0.0494,
+      "HR@10": 0.0679,
+      "NDCG@5": 0.0235,
+      "NDCG@10": 0.0296
+    }
+  },
+  "delta_masked_minus_unmasked": {
+    "HR@5": 0.0114,
+    "HR@10": 0.0114,
+    "NDCG@5": 0.0122,
+    "NDCG@10": 0.0123
+  },
+  "mqsa_ted_bar_HR@5": 0.0752,
+  "delta_vs_bar_HR@5": {
+    "unmasked": -0.0042,
+    "masked": 0.0072
+  },
+  "masked_beats_bar": true,
+  "runtime_sec": 39111.8
+}
