@@ -47,9 +47,11 @@ make test              # unit tests: mining leak-safety, templates, centroids, z
 make check-results     # every headline number in the paper == results/, and the six paired
                        # confirmatory tests + the §4.1 factorial inference re-run from the
                        # shipped per-user vectors (CPU, ~5-10 min; 254 checks)
-make smoke             # synthetic data, fake offline embedder: EVERY pipeline stage end to end (CPU, ~1 h)
+make smoke             # synthetic data, fake offline embedder: EVERY pipeline stage end to end
+                       # (CPU, ~1 h; needs ~8 GB free disk under outputs/ and ~8 GB RAM)
 TT_DATA_DIR=/path/to/data make check-data      # validate your prepared datasets
-TT_DATA_DIR=/path/to/data make quick           # every stage on 200 real users per dataset (CPU, ~2-3 h)
+TT_DATA_DIR=/path/to/data make quick           # every stage on 200 real users per dataset (CPU, ~2-3 h;
+                       # ~8 GB disk per dataset under outputs/, put it on real disk, not tmpfs)
 TT_DATA_DIR=/path/to/data make beauty-headline # Beauty towers -> gate -> look -> masked (GPU)
 TT_DATA_DIR=/path/to/data make reproduce       # everything (GPU; section 5)
 ```
@@ -526,7 +528,7 @@ Section numbers refer to the camera-ready paper.
 | SASRec-CE best seed (descriptive) 0.0526 / 0.0587 / 0.0290 | `test.overall.HR@5` (max over seeds) | `close2_sasrec_ce_{ds}_s{42,43,44}.json` | 5.9 |
 | SASRec-CE x3 matched fusion 0.0551 / 0.0634 / 0.0316 | `test.overall.HR@5` | `ensctrl_sasrec_ce_{ds}.json` | 5.11 |
 | BCE-SASRec fused 0.0328 / 0.0429 / 0.0203; Instruments 0.0717; Yelp 0.0359 | `test.overall.HR@5` | `ensctrl_sasrec_{beauty,toys,sports,instruments,yelp}.json` | 5.11 |
-| Control masked: CE 0.0689 / 0.0772 / 0.0379, BCE 0.0422 / 0.0541 / 0.0245 | `masked.overall.HR@5` | `ensctrl_masked_{ce,bce}_{ds}.json` | 5.11 |
+| Control masked (repo-only, not printed in the paper): CE 0.0689 / 0.0772 / 0.0379, BCE 0.0422 / 0.0541 / 0.0245 | `masked.overall.HR@5` | `ensctrl_masked_{ce,bce}_{ds}.json` | 5.11 |
 | Trio vs TIGER: +0.0257 / +0.0396 / +0.0126, p = 1e-4 | `primary_HR@5.delta`, `primary_HR@5.p_sign_flip` = 9.999000099990002e-05 | `close2_cell_{ds}_tiger.json` | 5.10 |
 | Trio vs best-seed SASRec: +0.0445 / +0.0457 / +0.0253, p = 1e-4 | same keys | `close2_cell_{ds}_sasrec.json` | 5.10 |
 | Cold slice (unmasked) 0.0062 / 0.0236 / 0.0088; TED cold Toys 0.0372, Sports 0.0146 | `unmasked.cold.HR@5`; TED: cold block of the i43 `_ted` JSONs | `i44_{ds}_EC.json`, `i43_masked_real_{toys,sports}_ted.json` | 5.12, 5.8 |
@@ -552,7 +554,7 @@ random3 0.0587: `trio.masked.HR@5` in `results/simpleaug_box_<selector>.json` (5
 | claim | expected value (key) | artifact | produced by |
 |---|---|---|---|
 | Verbalization variants move HR@5 by < 0.002, none passes the 3-of-3 gate | pseudo-test HR@5 per seed for `i22b_{succ,both,pred5}_s{42,43,44}_iv` vs `i22_s*_iv` | `p26_inner_validation.json` (+ `i22b_variant_gate.json`, ledger `I22B-KILL`) | 5.13 |
-| Open-embedder enrichment lift +0.0075..+0.0106 on 3/3 seeds | `towers.i25_openemb_{plain,pred3}_s*_iv` pseudo-test at the inner-selected w | `p26_inner_validation.json` (ledger `I25-OPEN-STACK-TRANSFER`) | 5.13 |
+| Open-embedder enrichment lift +0.0075..+0.0106 on 3/3 seeds (model identity not disclosed; see section on reproducibility limits) | `towers.i25_openemb_{plain,pred3}_s*_iv` pseudo-test at the inner-selected w | `p26_inner_validation.json` (ledger `I25-OPEN-STACK-TRANSFER`) | 5.13 |
 | n_q = 8 stack did not clear its gate | ledger `J8-*` entries | `ledger/ledger.jsonl` | historical (not re-run here) |
 
 ### Table 4 (Instruments / Yelp, HR@5) and Table 5 (their ablations)
@@ -560,7 +562,7 @@ random3 0.0587: `trio.masked.HR@5` in `results/simpleaug_box_<selector>.json` (5
 | claim | expected value (key) | artifact | produced by |
 |---|---|---|---|
 | Instruments trio 0.0995 (HR@10 0.1254, N@5 0.0799, N@10 0.0882), free arm 0.0654, Δ +0.0342 | `arms.trio`, `arms.free`, significance block | `i50_real_look_instruments.json` (gate `i50_gate_instruments.json`) | 5.5-5.7 |
-| Yelp deployed blend 0.0461 (HR@10 0.0648, N@5 0.034), free arm 0.0366, singles 0.0286 / 0.0284 / 0.0291 | `arms.trio`, `arms.free`, `arms.{42,43,44}` | `i51_real_look_yelp.json` (gate `i51_gate_yelp.json`, w=0.9) | 5.5-5.7 |
+| Yelp deployed blend 0.0461 (HR@10 0.0648, N@5 0.034), free arm 0.0366, singles 0.0286 / 0.0284 / 0.0291 (paper prints the range 0.0284-0.0291) | `arms.trio`, `arms.free`, `arms.{42,43,44}` | `i51_real_look_yelp.json` (gate `i51_gate_yelp.json`, w=0.9) | 5.5-5.7 |
 | Inner pseudo-test Instruments 0.1109, Yelp blend 0.0397 | gate JSONs | `i50_gate_instruments.json`, `i51_gate_yelp.json` | 5.6 |
 | SASRec Instruments 0.0639 / 0.0629 / 0.0637, Yelp 0.0278 / 0.027 / 0.0279 | `test.overall.HR@5` | `close2_sasrec_{instruments,yelp}_s{42,43,44}.json` | 5.9 |
 | TIGER repro Instruments 0.0886 / 0.0861 / 0.0901, Yelp 0.0198 / 0.0224 / 0.0218 (supplement A: HR@10/N@5/N@10) | `overall.*` | `close2_tiger_{instruments,yelp}_s{42,43,44}.json` | runbook |
@@ -573,7 +575,7 @@ random3 0.0587: `trio.masked.HR@5` in `results/simpleaug_box_<selector>.json` (5
 | Instruments 22.9 ms, Yelp 35.2 ms/query; 388 / 743 MB | `datasets.{instruments,yelp}.end_to_end_batch1_ms.trio_batch1_ms` = 22.8995... / 35.2488...; `datasets.*.memory_mb.total_serving_mb_trio` | `serving_bench_expand.json` | 5.14 |
 | B/T/S one tower 84 ms, trio 198 ms (1 thread), 465 MB | `end_to_end_batch1_ms.{single,trio}_batch1_ms` = 84.12... / 197.79... | `serving_bench.json` (+ `serving_bench_multithread.json`) | 5.14 |
 | Full Yelp blend 104.4 ms vs trio 84.6 ms; free arm +69 MB | `end_to_end_blend_batch1_ms.median_ms`, `components_batch1_ms.*`, `memory_mb.*` | `serving_bench_yelp_blend.json` | 5.14 |
-| TIGER 739 ms/query (co-tenant upper bound; idle rerun 48.9 ms GPU / 130.4 ms CPU) | latency fields | `close2_tiger_latency.json`, `close2_tiger_latency_reconstructed_{gpu,cpu}.json` | runbook §6 |
+| TIGER 739 ms/query (co-tenant upper bound; idle rerun 48.9 ms GPU / 130.4 ms CPU, repo-only) | latency fields | `close2_tiger_latency.json`, `close2_tiger_latency_reconstructed_{gpu,cpu}.json` | runbook §6 |
 | Serving-fidelity ANN replay: exact 0.069 = served 0.069 | `exact_reference.HR@5`, `served.HR@5` | `i23_ann_replay.json` | 5.14 |
 | 1M items: exact 1291.7 ms; IVF-Flat np16 0.952 @ 161.5 ms; IVF-PQ64 np64 0.959 @ 145.0 ms in 126 MB; HNSW32 ef128 0.955 @ 132.7 ms | `exact_singlethread_batch1.ms_p50`, `rows[*]`, `ivf_pq_mem_MB`, `distractor_calibration` | `ann_bench_deployed_1m.json` | 5.14 |
 
@@ -585,7 +587,7 @@ random3 0.0587: `trio.masked.HR@5` in `results/simpleaug_box_<selector>.json` (5
 | Seed-disagreement AUC 0.73 | `i29_adaptive_k.json` | `i29_adaptive_k.py` |
 | TED inner gates: Beauty -0.0005, Toys +0.0041, Sports +0.0041, Instruments +0.0005, Yelp +0.0048 | `i39_gate_beauty_ted_trio.json`, `i40_gate_{toys,sports}_ted_trio.json`, `i46_gate_instruments_ted_trio.json`, `i47_gate_yelp_ted_trio.json`; same-scorer anchors `i46_gate_instruments_i50_trio.json`, `i47_gate_yelp_i51_trio.json` | TED towers (`i46ted_instruments_inner_s*`, `i47ted_yelp_inner_s*`: `--seq/--item-emb/--input-emb/--n-items` = the dataset's inner files) + `i40_gate.py` |
 | Yelp TED-in-blend 0.0398 vs 0.0397 | `i47_blend_yelp_ted.json` | `i50_gate_expand.py --dataset yelp --ckpt-prefix outputs/artifacts/i47ted_yelp_inner_s --out results/i47_blend_yelp_ted.json` |
-| Scale: 13.1M M-tower Beauty 0.0463, Toys 0.0638; with TED 0.0578 / 0.0724; Sports M+TED 0.0313; 59.9M L-tower | `i18_size_score.json`, `i18hard_gate_toys_m.json`, `i18ted_gate_{beauty,toys,sports}_m.json` | M = `--d 512 --layers 4 --heads 8 --d-ff 1024` (`train_j5a.py`, Beauty inner, `i18_size_m_s42_iv`) / `--d 512 --layers 4 --heads 8 --d_ff 1024` (`i40_train_tricks.py`, +TED); L = `--d 1024 --layers 6 --heads 16 --d-ff 2048` (lr 1e-3 and 5e-4); scored with `i18_size_score.py` / `i40_gate.py` |
+| Scale: 13.1M M-tower Beauty 0.0463, Toys 0.0638; with TED 0.0578 / 0.0724; Sports M+TED 0.0313; 59.9M L-tower (repo-only) | `i18_size_score.json`, `i18hard_gate_toys_m.json`, `i18ted_gate_{beauty,toys,sports}_m.json` | M = `--d 512 --layers 4 --heads 8 --d-ff 1024` (`train_j5a.py`, Beauty inner, `i18_size_m_s42_iv`) / `--d 512 --layers 4 --heads 8 --d_ff 1024` (`i40_train_tricks.py`, +TED); L = `--d 1024 --layers 6 --heads 16 --d-ff 2048` (lr 1e-3 and 5e-4); scored with `i18_size_score.py` / `i40_gate.py` |
 | MiniLM trunk + TED 0.0778 < 0.0802 | `i48_gate.json` | `i37_train_lmq.py --seed {42,43,44} --ted_beta 0.1 --ted_tau 0.1 --out-dir outputs/artifacts/i48_lmqted_s{seed}` + `i37_gate.py --ckpt-prefix outputs/artifacts/i48_lmqted_s --out results/i48_gate.json` |
 | Yelp cold slice: free 0.0424 vs trio 0.0254; injection cells pp 0.0169 / pC 0.0085 / Ep 0.0 | `i51_real_look_yelp.json`, `i44_yelp_*.json` (cold blocks) | 5.7, 5.12 |
 
@@ -633,6 +635,11 @@ random3 0.0587: `trio.masked.HR@5` in `results/simpleaug_box_<selector>.json` (5
 * **The I37 plain MiniLM-trunk gate value (0.0756, supplement E)** has no archived result
   JSON (only the TED variant `i48_gate.json` does); `i37_gate.py` regenerates it from
   `i37_train_lmq.py` towers.
+* **The open-embedder check is not externally reproducible as published.** The paper and
+  this repository refer to the model only as "one leading open-source embedding model";
+  its identity is not disclosed, so the +0.0075..+0.0106 lift can be checked against
+  `results/p26_inner_validation.json` but not regenerated bit for bit. The scripts accept
+  any sentence-transformers model through `TT_OPEN_EMBEDDER`.
 * **The open-embedder pred3 catalog** (`Beauty_openemb-large_i25_pred3_inner_embeddings.pt`) was embedded
   ad hoc on a GPU box; `scripts/embed_open_texts.py` reconstructs that step with the same
   encoder settings as `embed_open_catalog.py` (not exercised in `make quick`: it downloads
